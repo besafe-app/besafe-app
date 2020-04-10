@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Creators as profileActions } from 'store/ducks/profile';
 import { ProfilePresentation } from 'components/presentation/Profile';
 import { getLanguage } from 'helpers';
+import { getStoreItem } from 'config/storage';
 
 const ProfileContainer = () => {
   const { navigate } = useNavigation();
@@ -35,7 +36,14 @@ const ProfileContainer = () => {
 
   const updateProfile = () => {
     if (values.name && values.gender.value && values.date) {
-      dispatch(profileActions.updateProfileRequest(values));
+      getStoreItem('@BeSafe:token', token => {
+        dispatch(
+          profileActions.updateProfileRequest({
+            values,
+            token
+          })
+        );
+      });
     } else {
       setMessageError(translate('required-field'));
       dispatch(profileActions.updateProfileFail(['required-field']));

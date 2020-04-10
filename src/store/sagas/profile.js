@@ -3,13 +3,25 @@ import { Types } from '../ducks/profile';
 import { api } from 'utils';
 import constants from 'config/constants';
 
-function* update(payload) {
+function* update({ payload: { values, token } }) {
   try {
-    console.log('PAYLOAD ->', payload);
-    const response = yield api.patch(constants.api.profile.updateProfile);
+    const response = yield api.patch(
+      constants.api.profile.updateProfile,
+      {
+        name: values.name,
+        gender: values.gender.value,
+        birthDate: values.date
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
     yield put({
       type: Types.UPDATE_PROFILE_SUCCESS,
-      data: response.data,
+      data: response.data
     });
   } catch (error) {
     yield put({
