@@ -6,6 +6,5 @@ export default () => {
       ? NativeModules.SettingsManager.settings.AppleLocale ||
         NativeModules.SettingsManager.settings.AppleLanguages[0]
       : NativeModules.I18nManager.localeIdentifier;
-
-  return locale.split('-')[0];
+  return locale.replace('_', '-');
 };

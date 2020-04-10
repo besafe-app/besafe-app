@@ -16,7 +16,15 @@ const Container = styled.View`
   margin-bottom: ${({ marginBottom }) => marginBottom}px;
 `;
 
-const DatePicker = ({ onChange, label, marginBottom, marginLeft, marginRight, marginTop }) => {
+const DatePicker = ({
+  onChange,
+  label,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  value
+}) => {
   const now = new Date();
   const [show, setShow] = useState(false);
 
@@ -29,12 +37,12 @@ const DatePicker = ({ onChange, label, marginBottom, marginLeft, marginRight, ma
         marginTop={marginTop}
       >
         <Label color={COLORS.defaultTextLight} fontSize={18}>
-          {label}
+          {!value ? label : value.toLocaleDateString()}
         </Label>
         {show && (
           <DateTimePicker
             timeZoneOffsetInMinutes={now.getTimezoneOffset()}
-            value={now}
+            value={value}
             display='default'
             onChange={event => {
               setShow(false);
@@ -53,7 +61,8 @@ DatePicker.propTypes = {
   marginBottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   marginRight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   marginLeft: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  marginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  marginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  value: PropTypes.object
 };
 
 DatePicker.defaultProps = {
@@ -62,7 +71,8 @@ DatePicker.defaultProps = {
   marginBottom: 0,
   marginRight: 0,
   marginLeft: 0,
-  marginTop: 0
+  marginTop: 0,
+  value: new Date()
 };
 
 export default DatePicker;

@@ -45,11 +45,11 @@ const Picker = ({
         marginRight={marginRight}
       >
         <CustomPicker
-          value={value.value}
+          value={value}
           options={options}
           onValueChange={onValueChange}
           fieldTemplate={({ selectedItem, getLabel }) => {
-            if (!selectedItem) {
+            if (!selectedItem || !selectedItem.value) {
               return (
                 <Label fontSize={18} color={COLORS.defaultTextLight}>
                   {placeholder}

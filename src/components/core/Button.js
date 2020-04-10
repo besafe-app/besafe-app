@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import COLORS from 'config/colors';
+import Loader from './Loader';
 
 const Button = props => (
   <StyledTouchableOpacity onPress={props.onPress} {...props}>
     {props.isLoading ? (
-      <ActivityIndicator size='small' color={props.loadingColor} />
+      <Loader />
     ) : (
       <StyledText {...props}>{props.children}</StyledText>
     )}
@@ -97,6 +98,7 @@ const StyledText = styled.Text`
   font-weight: ${({ fontWeight }) => fontWeight};
   text-align: ${({ textAlign }) => textAlign};
   color: ${({ textColor }) => textColor};
+  font-size: ${({ fontSize }) => fontSize}px;
 `;
 
 export default Button;

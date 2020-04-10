@@ -7,6 +7,7 @@ const COLORS = {
   grey: '#BFBFBF',
   red: '#DA1F26',
   greyLight: '#E6E6E6',
+  green: '#30B700',
 
   /* Background Colors */
   background: '#F5F5F5',
@@ -16,8 +17,8 @@ const COLORS = {
   defaultTextLight: '#909090',
 
   /* Status Colors */
-  successColor: '#5DC0AD',
-  alertColor: '#FF4E56',
+  successColor: '#30B700',
+  alertColor: '#FF0000',
   infoColor: '#007AFF'
 };
 

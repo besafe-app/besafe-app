@@ -38,7 +38,7 @@ const Checkbox = ({
 
   const changeCheck = () => {
     setCheck(!check);
-    onChange(!check);
+    onChange({ label, check: !check });
   };
 
   return (

@@ -3,5 +3,7 @@ export default {
   gender: 'Sexo',
   'register-completed': 'Cadastro concluído',
   'lets-go': 'Vamos lá!',
-  back: 'Voltar'
+  back: 'Voltar',
+  'required-field': 'Há campos vazios!',
+  'generic-error': 'Ocorreu um erro inesperado!',
 };

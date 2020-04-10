@@ -3,5 +3,7 @@ export default {
   gender: 'Gender',
   'register-completed': 'Register completed',
   'lets-go': "Let's go!",
-  back: 'Back'
+  back: 'Back',
+  'required-field': 'There are empty fields!',
+  'generic-error': 'An unexpected error occurred!'
 };

@@ -4,7 +4,7 @@ import { KeyboardAvoidingView, Platform, StatusBar, SafeAreaView } from 'react-n
 import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 
-import store from 'store/reducerConfig';
+import store from 'store';
 
 import Navigator from 'config/routes';
 import COLORS from 'config/colors';
