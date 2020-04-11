@@ -13,8 +13,14 @@ import { getLanguage } from 'helpers';
 import { FormContainer, Container } from './styles';
 import Toast from 'components/core/Toast';
 
-const ProfilePresentation = ({ values, setFieldValue, isLoading, errors, messageError, onSubmit }) => {
-  const { navigate } = useNavigation();
+const ProfilePresentation = ({
+  values,
+  setFieldValue,
+  isLoading,
+  errors,
+  messageError,
+  onSubmit
+}) => {
   const { t: translate, i18n } = useTranslation();
 
   useEffect(() => {
@@ -56,7 +62,12 @@ const ProfilePresentation = ({ values, setFieldValue, isLoading, errors, message
           onChange={value => setFieldValue('date', new Date(value))}
         />
       </FormContainer>
-      <Button fontSize={18} onPress={onSubmit} isLoading={isLoading}>
+      <Button
+        fontSize={18}
+        onPress={onSubmit}
+        isLoading={isLoading}
+        disabled={!values.name || !values.gender.value || !values.date}
+      >
         {translate('next')}
       </Button>
       <Toast show={errors.length !== 0} type='error' message={messageError} />

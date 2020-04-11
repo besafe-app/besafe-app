@@ -11,6 +11,7 @@ import { PreConditionsScreen } from 'screens/PreConditions';
 import { RiskScreen } from 'screens/Risk';
 import { SuccessScreen } from 'screens/Success';
 import { OnboardingScreen } from 'screens/Onboarding';
+import { HomeScreen } from 'screens/Home';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,7 @@ const Navigator = () => {
 
   useLayoutEffect(() => {
     getStoreItem('@BeSafe:TermAgreed', termAcepted => {
-      setInitialRoute(termAcepted === 'true' ? 'Profile' : 'OnBoarding');
+      setInitialRoute(termAcepted === 'true' ? 'Profile' : 'PreConditions');
     });
   }, []);
 
@@ -33,6 +34,7 @@ const Navigator = () => {
         <Stack.Screen name='PreConditions' component={PreConditionsScreen} />
         <Stack.Screen name='Success' component={SuccessScreen} />
         <Stack.Screen name='Risk' component={RiskScreen} />
+        <Stack.Screen name='Home' component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
