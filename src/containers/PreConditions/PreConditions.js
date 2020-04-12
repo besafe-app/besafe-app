@@ -12,9 +12,7 @@ const PreConditionsContainer = () => {
   const { navigate } = useNavigation();
   const { i18n, t: translate } = useTranslation();
   const [conditions, setConditions] = useState([]);
-  const [token, setToken] = useState(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE1ODYyNjU1NDM1OTIsInVwZGF0ZWRBdCI6MTU4NjQ0MDM4MzQ2NiwiaWQiOjEsIm5hbWUiOiIiLCJwaG9uZSI6Iis1NTMxOTg2NTQzOTMxIiwibmlja25hbWUiOiJDYXJsb3MiLCJjb2RlIjo0MDE3MTIsImdlbmRlciI6IiIsImJpcnRoZGF0ZSI6bnVsbCwiaWF0IjoxNTg2NDQwNDA1fQ.b8_V7suUtDh0a65tcrQVwgeOVvgDq4wmcbT-m1Jmsx8'
-  );
+  const [token, setToken] = useState(null);
   const [messageError, setMessageError] = useState(null);
 
   const dispatch = useDispatch();
