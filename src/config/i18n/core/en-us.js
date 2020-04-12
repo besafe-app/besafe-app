@@ -5,5 +5,6 @@ export default {
   'lets-go': "Let's go!",
   back: 'Back',
   'required-field': 'There are empty fields!',
-  'generic-error': 'An unexpected error occurred!'
+  'generic-error': 'An unexpected error occurred!',
+  wait: 'Wait...'
 };

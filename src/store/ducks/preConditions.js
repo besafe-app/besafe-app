@@ -17,9 +17,9 @@ const INITIAL_STATE = {
 
 const listPreConditionsRequest = () => ({ ...INITIAL_STATE, isLoading: true });
 
-const listPreConditionsSuccess = (state, { data }) => ({
+const listPreConditionsSuccess = (state, { listPreConditions }) => ({
   ...state,
-  data,
+  listPreConditions,
   isLoading: false,
   errors: []
 });

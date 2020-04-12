@@ -32,14 +32,14 @@ const PreConditionsContainer = () => {
   };
 
   useEffect(() => {
-    setConditions(preConditions.data);
-  }, [preConditions.data]);
+    setConditions(preConditions.listPreConditions);
+  }, [preConditions.listPreConditions]);
 
   useEffect(() => {
     i18n.changeLanguage(getLanguage());
 
     getStoreItem('@BeSafe:token', () => {
-      // setToken(token);
+      setToken(token);
       dispatch(
         preConditionsActions.listPreConditionsRequest({
           token
@@ -49,7 +49,6 @@ const PreConditionsContainer = () => {
   }, []);
 
   useEffect(() => {
-    console.log(preConditions.errors);
     if (preConditions.errors.length !== 0) {
       setMessageError(translate('generic-error'));
     }
@@ -60,11 +59,12 @@ const PreConditionsContainer = () => {
       navigate('Home');
     } else {
       dispatch(
-        preConditionsActions.savePreConditions({
+        preConditionsActions.savePreConditionsRequest({
           conditions: conditions.map(condition => condition.id),
           token
         })
       );
+      navigate('Home');
     }
   };
 
@@ -75,6 +75,7 @@ const PreConditionsContainer = () => {
       conditions={conditions}
       messageError={messageError}
       errors={preConditions.errors}
+      loading={preConditions.loading}
     />
   );
 };

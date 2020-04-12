@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 

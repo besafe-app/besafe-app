@@ -9,13 +9,15 @@ import Checkbox from 'components/core/Checkbox';
 import COLORS from 'config/colors';
 import { Container, ConditionsContainer, CheckContainer, Separator } from './styles';
 import Toast from 'components/core/Toast';
+import Loader from 'components/core/Loader';
 
 const PreConditionsPresentation = ({
   checkCondition,
   onSubmit,
   conditions,
   messageError,
-  errors
+  errors,
+  loading
 }) => {
   const { t: translate } = useTranslation();
 
@@ -42,7 +44,9 @@ const PreConditionsPresentation = ({
             keyExtractor={item => item.id}
           />
         </ConditionsContainer>
-        <Button onPress={onSubmit}>{translate('next')}</Button>
+        <Button onPress={onSubmit} isLoading={loading}>
+          {translate('next')}
+        </Button>
       </Container>
       <Toast show={errors.length !== 0} type='error' message={messageError} />
     </>
@@ -54,13 +58,15 @@ PreConditionsPresentation.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   conditions: PropTypes.array,
   messageError: PropTypes.string,
-  errors: PropTypes.array
+  errors: PropTypes.array,
+  loading: PropTypes.bool
 };
 
 PreConditionsPresentation.defaultProps = {
   conditions: [],
   messageError: null,
-  errors: []
+  errors: [],
+  loading: false
 };
 
 export default PreConditionsPresentation;

@@ -17,9 +17,10 @@ function* listPreConditions({ payload: { token } }) {
 
     yield put({
       type: Types.LIST_PRE_CONDITIONS_SUCCESS,
-      data: response.data
+      listPreConditions: response.data
     });
   } catch (error) {
+    console.log(error);
     yield put({
       type: Types.LIST_PRE_CONDITIONS_FAIL,
       errors: [error]
@@ -52,5 +53,5 @@ function* savePreConditions({ payload: { conditions, token } }) {
 
 export default function* watcherSaga() {
   yield takeLatest(Types.LIST_PRE_CONDITIONS_REQUEST, listPreConditions);
-  yield takeLatest(Types.savePreConditionsRequest, savePreConditions);
+  yield takeLatest(Types.SAVE_PRE_CONDITIONS_REQUEST, savePreConditions);
 }
