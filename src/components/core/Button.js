@@ -10,11 +10,7 @@ import Loader from './Loader';
 
 const Button = props => (
   <StyledTouchableOpacity onPress={props.onPress} {...props}>
-    {props.isLoading ? (
-      <Loader />
-    ) : (
-      <StyledText {...props}>{props.children}</StyledText>
-    )}
+    {props.isLoading ? <Loader /> : <StyledText {...props}>{props.children}</StyledText>}
   </StyledTouchableOpacity>
 );
 
@@ -42,7 +38,8 @@ Button.defaultProps = {
   bottom: 0,
   loadingColor: COLORS.primary,
   onPress: () => {},
-  isLoading: false
+  isLoading: false,
+  disabled: false
 };
 
 Button.propTypes = {
@@ -70,7 +67,8 @@ Button.propTypes = {
   loadingColor: PropTypes.string,
   children: PropTypes.shape({}).isRequired,
   onPress: PropTypes.func,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 const StyledTouchableOpacity = styled.TouchableOpacity`
@@ -86,7 +84,8 @@ const StyledTouchableOpacity = styled.TouchableOpacity`
   border-width: ${({ borderWidth }) => borderWidth};
   border-color: ${({ borderColor }) => borderColor};
   border-radius: ${({ borderRadius }) => borderRadius};
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ backgroundColor, disabled }) =>
+    disabled ? COLORS.greyLight : backgroundColor};
   position: ${({ position }) => position};
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};

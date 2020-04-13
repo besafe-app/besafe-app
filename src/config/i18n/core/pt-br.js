@@ -6,4 +6,5 @@ export default {
   back: 'Voltar',
   'required-field': 'Há campos vazios!',
   'generic-error': 'Ocorreu um erro inesperado!',
+  wait: 'Aguarde...'
 };

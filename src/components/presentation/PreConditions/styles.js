@@ -18,5 +18,5 @@ export const CheckContainer = styled.View`
 `;
 
 export const Separator = styled.View`
-  margin-top: 10px;
+  margin-top: 15px;
 `;
