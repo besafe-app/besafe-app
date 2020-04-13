@@ -17,7 +17,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <StatusBar backgroundColor={COLORS.background} barStyle='dark-content' />
-      <SafeAreaView backgroundColor={COLORS.primary} />
+      <SafeAreaView backgroundColor={COLORS.background} />
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.Os == 'ios' ? 'padding' : 'height'}

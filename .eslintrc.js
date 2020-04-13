@@ -1,18 +1,20 @@
 module.exports = {
-  parser: 'babel-eslint',
   extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
-  plugins: ['react', 'prettier', 'react-hooks'],
+  plugins: ['react', 'prettier', 'detox', 'react-hooks'],
+  parser: 'babel-eslint',
   globals: {
     __DEV__: true,
+    detoxCircus: true,
     fetch: false
   },
   env: {
-    jest: true
+    jest: true,
+    'detox/detox': true
   },
   rules: {
     'comma-dangle': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'import/prefer-default-export': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-one-expression-per-line': 'off',
     'react/prop-types': ['error', { ignore: ['navigation'] }],
     'react/state-in-constructor': 'off',
@@ -23,12 +25,11 @@ module.exports = {
       {
         groups: ['external', ['internal', 'sibling']]
       }
-    ],
-    strict: 0,
-    settings: {
-      'import/resolver': {
-        'babel-module': {}
-      }
+    ]
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {}
     }
   }
 };
