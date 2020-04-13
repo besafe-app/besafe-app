@@ -14,9 +14,10 @@ const PreConditionsContainer = () => {
   const [conditions, setConditions] = useState([]);
   const [token, setToken] = useState(null);
   const [messageError, setMessageError] = useState(null);
+  const { listPreConditionsRequest, savePreConditionsRequest } = preConditionsActions;
 
   const dispatch = useDispatch();
-  const preConditions = useSelector(state => state.preConditions);
+  const { listPreConditions, errors, loading } = useSelector(({ preConditions }) => preConditions);
 
   const checkCondition = condition => {
     const index = conditions.findIndex(item => item.label === condition.label);
@@ -30,8 +31,8 @@ const PreConditionsContainer = () => {
   };
 
   useEffect(() => {
-    setConditions(preConditions.listPreConditions);
-  }, [preConditions.listPreConditions]);
+    setConditions(listPreConditions);
+  }, [listPreConditions]);
 
   useEffect(() => {
     i18n.changeLanguage(getLanguage());
@@ -39,7 +40,7 @@ const PreConditionsContainer = () => {
     getStoreItem('@BeSafe:token', () => {
       setToken(token);
       dispatch(
-        preConditionsActions.listPreConditionsRequest({
+        listPreConditionsRequest({
           token
         })
       );
@@ -57,7 +58,7 @@ const PreConditionsContainer = () => {
       navigate('Home');
     } else {
       dispatch(
-        preConditionsActions.savePreConditionsRequest({
+        savePreConditionsRequest({
           conditions: conditions.map(condition => condition.id),
           token
         })
@@ -72,8 +73,8 @@ const PreConditionsContainer = () => {
       onSubmit={submit}
       conditions={conditions}
       messageError={messageError}
-      errors={preConditions.errors}
-      loading={preConditions.loading}
+      errors={errors}
+      loading={loading}
     />
   );
 };

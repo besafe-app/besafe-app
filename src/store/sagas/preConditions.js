@@ -20,7 +20,6 @@ function* listPreConditions({ payload: { token } }) {
       listPreConditions: response.data
     });
   } catch (error) {
-    console.log(error);
     yield put({
       type: Types.LIST_PRE_CONDITIONS_FAIL,
       errors: [error]
