@@ -35,19 +35,20 @@ const ProfileContainer = () => {
   };
 
   const updateProfile = () => {
-    if (values.name && values.gender.value && values.date) {
-      getStoreItem('@BeSafe:token', token => {
-        dispatch(
-          profileActions.updateProfileRequest({
-            values,
-            token
-          })
-        );
-      });
-    } else {
-      setMessageError(translate('required-field'));
-      dispatch(profileActions.updateProfileFail(['required-field']));
-    }
+    navigate('ValidationPhone');
+    // if (values.name && values.gender.value && values.date) {
+    //   getStoreItem('@BeSafe:token', token => {
+    //     dispatch(
+    //       profileActions.updateProfileRequest({
+    //         values,
+    //         token
+    //       })
+    //     );
+    //   });
+    // } else {
+    //   setMessageError(translate('required-field'));
+    //   dispatch(profileActions.updateProfileFail(['required-field']));
+    // }
   };
 
   useEffect(() => {

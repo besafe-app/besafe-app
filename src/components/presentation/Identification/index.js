@@ -1,2 +1,3 @@
 import IdentificationPresentation from './Identification';
-export { IdentificationPresentation };
+import ValidationPhonePresentation from './ValidationPhone';
+export { IdentificationPresentation, ValidationPhonePresentation };

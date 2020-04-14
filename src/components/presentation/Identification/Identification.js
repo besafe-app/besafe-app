@@ -25,7 +25,7 @@ const IdentificationPresentation = () => {
         </LabelContainer>
       </FormContainer>
       <ButtonContainer>
-        <Button label='Receber código por SMS' action={() => navigate('Profile')} />
+        <Button label='Receber código por SMS' action={() => navigate('ValidationPhone')} />
         <Button
           label='Receber por WhatsApp'
           primary={false}

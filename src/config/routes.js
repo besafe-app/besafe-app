@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { getStoreItem } from 'config/storage';
 
-import { IdentificationScreen } from 'screens/Identification';
+import { IdentificationScreen, ValidationPhoneScreen } from 'screens/Identification';
 import { ProfileScreen } from 'screens/Profile';
 import { PreConditionsScreen } from 'screens/PreConditions';
 import { RiskScreen } from 'screens/Risk';
@@ -30,6 +30,7 @@ const Navigator = () => {
       <Stack.Navigator headerMode='none' initialRouteName={initialRoute}>
         <Stack.Screen name='Onboarding' component={OnboardingScreen} />
         <Stack.Screen name='Identification' component={IdentificationScreen} />
+        <Stack.Screen name='ValidationPhone' component={ValidationPhoneScreen} />
         <Stack.Screen name='Profile' component={ProfileScreen} />
         <Stack.Screen name='PreConditions' component={PreConditionsScreen} />
         <Stack.Screen name='Success' component={SuccessScreen} />
