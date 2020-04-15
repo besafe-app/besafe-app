@@ -12,6 +12,8 @@ import { LabelContainer, ButtonContainer, FormContainer, Container } from './sty
 
 const ValidationPhonePresentation = ({
   isLoading,
+  values,
+  setFieldValue,
   errors,
   onSubmit,
   reSendToken,
@@ -21,6 +23,18 @@ const ValidationPhonePresentation = ({
   const [disabledButtom, setDisabledButtom] = useState(true);
   const [disabled, setDisabled] = useState(true);
   const { t: translate, i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(getLanguage());
+  }, []);
+
+  useEffect(() => {
+    values?.code && setDisabled(false);
+  }, [values]);
+
+  useEffect(() => {
+    startSeconds();
+  }, []);
 
   const startSeconds = () => {
     let restart = 3;
@@ -34,14 +48,6 @@ const ValidationPhonePresentation = ({
     }, 1000);
   };
 
-  useEffect(() => {
-    i18n.changeLanguage(getLanguage());
-  }, []);
-
-  useEffect(() => {
-    startSeconds();
-  }, []);
-
   return (
     <Container>
       <FormContainer>
@@ -54,9 +60,10 @@ const ValidationPhonePresentation = ({
           </Label>
         </LabelContainer>
         <TextInput
-          onChangeText={value => console.tron.log({ value })}
           placeholder={translate('verification-code')}
           marginTop={24}
+          onChange={value => setFieldValue('code', value)}
+          value={values.code}
         />
       </FormContainer>
       <ButtonContainer>

@@ -15,12 +15,17 @@ const ValidationPhoneContainer = () => {
     }
   }, [reducer.errors]);
 
+  const setFieldValue = (field, value) => {
+    setValues({
+      [field]: value
+    });
+  };
+
   const onSubmit = () => {
     if (values.code) {
       dispatch(
         identificationActions.validatioPhoneRequest({
-          values,
-          token
+          values
         })
       );
     } else {
@@ -34,6 +39,8 @@ const ValidationPhoneContainer = () => {
   return (
     <ValidationPhonePresentation
       onSubmit={onSubmit}
+      setFieldValue={setFieldValue}
+      values={values}
       reSendToken={reSendToken}
       isLoading={reducer.isLoading}
       errors={reducer.errors}
