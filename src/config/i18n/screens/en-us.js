@@ -13,5 +13,11 @@ export default {
   'onboarding-title': 'Onboarding title',
   'onboarding-text':
     'Parágrafo curto falando do objetivo do app e da importância de todos nós se juntarmos contra o Corona.',
-  'onboarding-buttonAgree': 'I agree'
+  'onboarding-buttonAgree': 'I agree',
+  'verification-label': 'Ckeck',
+  'verification-code': 'Verfiication Code',
+  'verification-title': 'Verification',
+  'verification-text': 'We sent a verification code. Please enter it below.',
+  'verification-resend-code': 'Resend code',
+  'verification-resend-code-in': 'Resend code in'
 };

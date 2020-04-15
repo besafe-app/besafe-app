@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import Toast from 'components/core/Toast';
+import { useTranslation } from 'react-i18next';
+import { getLanguage } from 'helpers';
 
-import Label from 'components/core/Label';
+import Toast from 'components/core/Toast';
 import TextInput from 'components/core/TextInput';
+import Label from 'components/core/Label';
 import Button from 'components/core/Button';
+
 import COLORS from 'config/colors';
 import { LabelContainer, ButtonContainer, FormContainer, Container } from './styles';
 
 const ValidationPhonePresentation = ({
   isLoading,
   errors,
-  messageError,
   onSubmit,
-  reSendToken
+  reSendToken,
+  messageError
 }) => {
-  const { navigate } = useNavigation();
   const [seconds, setSeconds] = useState(0);
   const [disabledButtom, setDisabledButtom] = useState(true);
-  const [disabled, setDisabled] = useState(false);
-  const [messageError, setMessageError] = useState('');
+  const [disabled, setDisabled] = useState(true);
   const { t: translate, i18n } = useTranslation();
 
   const startSeconds = () => {
-    let restart = 60;
+    let restart = 3;
     const start = setInterval(() => {
       restart--;
       setSeconds(restart);
@@ -46,25 +46,33 @@ const ValidationPhonePresentation = ({
     <Container>
       <FormContainer>
         <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-          Verificação
+          {translate('verification-title')}
         </Label>
         <LabelContainer>
           <Label fonSize={16} lineHeight={24}>
-            Enviamos um código de verificação. Por favor insira ele abaixo.
+            {translate('verification-text')}
           </Label>
         </LabelContainer>
         <TextInput
           onChangeText={value => console.tron.log({ value })}
-          placeholder={'Código de Verificação'}
+          placeholder={translate('verification-code')}
           marginTop={24}
         />
       </FormContainer>
       <ButtonContainer>
         <Button disabled={disabled} action={() => onSubmit()}>
-          {'Verificar'}
+          {translate('verification-label')}
         </Button>
-        <Button disabled={disabledButtom} primary={false} marginTop={20} action={() => reSend()}>
-          {seconds <= 0 ? `Reenviar código` : `Reenviar código em ${seconds}s`}
+        <Button
+          style={{ color: seconds == 0 ? COLORS.white : COLORS.primary }}
+          disabled={disabledButtom}
+          primary={false}
+          marginTop={20}
+          action={() => reSendToken()}
+        >
+          {seconds <= 0
+            ? translate('verification-resend-code')
+            : `${translate('verification-resend-code-in')} ${seconds}s`}
         </Button>
       </ButtonContainer>
       <Toast show={errors.length !== 0} type='error' message={messageError} />

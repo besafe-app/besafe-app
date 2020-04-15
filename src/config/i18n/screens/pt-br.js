@@ -13,5 +13,11 @@ export default {
   'onboarding-title': 'Título do Onboarding',
   'onboarding-text':
     'Parágrafo curto falando do objetivo do app e da importância de todos nós se juntarmos contra o Corona.',
-  'onboarding-buttonAgree': 'Concordo'
+  'onboarding-buttonAgree': 'Concordo',
+  'verification-label': 'Verificar',
+  'verification-code': 'Código de Verificação',
+  'verification-title': 'Verificação',
+  'verification-text': 'Enviamos um código de verificação. Por favor insira ele abaixo.',
+  'verification-resend-code': 'Reenviar código',
+  'verification-resend-code-in': 'Reenviar código em'
 };
