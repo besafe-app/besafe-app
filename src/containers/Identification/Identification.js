@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
+import { Creators as identificationActions } from 'store/ducks/identification';
 import { IdentificationPresentation } from 'components/presentation/Identification';
 
 const IdentificationContainer = () => {
@@ -27,15 +28,15 @@ const IdentificationContainer = () => {
 
   const onSubmit = () => {
     if (values.nickname && values.phoneNumber) {
-      // dispatch(
-      //   identificationActions.validatioPhoneRequest({
-      //     values
-      //   })
-      // );
+      dispatch(
+        identificationActions.createProfileRequest({
+          values
+        })
+      );
       navigate('ValidationPhone');
     } else {
       setMessageError(translate('required-field'));
-      dispatch(identificationActions.validatioPhoneFail(['required-field']));
+      dispatch(identificationActions.createProfileFail(['required-field']));
     }
   };
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Creators as identificationActions } from 'store/ducks/identification';
 import { ValidationPhonePresentation } from 'components/presentation/Identification';
 
 const ValidationPhoneContainer = () => {
@@ -26,7 +28,7 @@ const ValidationPhoneContainer = () => {
     if (!resend) {
       setReSend(true);
       dispatch(
-        identificationActions.validatioPhoneRequest({
+        identificationActions.validationProfileRequest({
           values
         })
       );
@@ -36,13 +38,13 @@ const ValidationPhoneContainer = () => {
   const reSendToken = () => {
     if (values.code) {
       dispatch(
-        identificationActions.validatioPhoneRequest({
+        identificationActions.validationProfileRequest({
           values
         })
       );
     } else {
       setMessageError(translate('required-field'));
-      dispatch(identificationActions.validatioPhoneFail(['required-field']));
+      dispatch(identificationActions.validationProfileFail(['required-field']));
     }
   };
 
