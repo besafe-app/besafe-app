@@ -75,7 +75,7 @@ const ValidationPhonePresentation = ({
           disabled={disabledButtom}
           primary={false}
           marginTop={20}
-          action={() => reSendToken()}
+          onPress={reSendToken}
         >
           {seconds <= 0
             ? translate('verification-resend-code')

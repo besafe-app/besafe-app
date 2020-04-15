@@ -19,5 +19,10 @@ export default {
   'verification-title': 'Verificação',
   'verification-text': 'Enviamos um código de verificação. Por favor insira ele abaixo.',
   'verification-resend-code': 'Reenviar código',
-  'verification-resend-code-in': 'Reenviar código em'
+  'verification-resend-code-in': 'Reenviar código em',
+  'identification-title': 'Dados básicos',
+  'identification-text': 'Enviaremos um código de verificação por Mensagem (SMS) no seu celular.',
+  'identification-nickname': 'Como quer ser chamado',
+  'identification-phone-number': 'Celular',
+  'identification-title-receive-sms': 'Receber código por SMS'
 };

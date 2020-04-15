@@ -7,6 +7,7 @@ const ValidationPhoneContainer = () => {
   const reducer = useSelector(({ profile }) => profile);
 
   const [values, setValues] = useState({ name: '' });
+  const [resend, setReSend] = useState(false);
   const [messageError, setMessageError] = useState('');
 
   useEffect(() => {
@@ -22,6 +23,17 @@ const ValidationPhoneContainer = () => {
   };
 
   const onSubmit = () => {
+    if (!resend) {
+      setReSend(true);
+      dispatch(
+        identificationActions.validatioPhoneRequest({
+          values
+        })
+      );
+    }
+  };
+
+  const reSendToken = () => {
     if (values.code) {
       dispatch(
         identificationActions.validatioPhoneRequest({
@@ -33,8 +45,6 @@ const ValidationPhoneContainer = () => {
       dispatch(identificationActions.validatioPhoneFail(['required-field']));
     }
   };
-
-  const reSendToken = () => {};
 
   return (
     <ValidationPhonePresentation

@@ -17,7 +17,7 @@ const Onboarding = () => {
   const { t } = useTranslation();
 
   const onPressAgreed = () => {
-    setStoreItem('@BeSafe:TermAgreed', 'true', () => replace('Profile'));
+    setStoreItem('@BeSafe:TermAgreed', 'true', () => replace('Identification'));
   };
 
   return (

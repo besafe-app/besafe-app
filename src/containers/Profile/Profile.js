@@ -35,7 +35,7 @@ const ProfileContainer = () => {
   };
 
   const updateProfile = () => {
-    navigate('ValidationPhone');
+    navigate('Identification');
     // if (values.name && values.gender.value && values.date) {
     //   getStoreItem('@BeSafe:token', token => {
     //     dispatch(
