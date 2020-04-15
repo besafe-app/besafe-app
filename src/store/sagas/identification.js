@@ -1,4 +1,4 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, get, post } from 'redux-saga/effects';
 import { Types } from '../ducks/preConditions';
 import { api } from 'utils';
 import constants from 'config/constants';
@@ -34,7 +34,7 @@ function* validationProfile({ payload: { id, code } }) {
       //   Authorization: `Bearer ${token}`
       // }
     });
-    yield post({ type: Types.VALIDATION_PROFILE_SUCCESS, id: response.data });
+    yield post({ type: Types.VALIDATION_PROFILE_SUCCESS, data: response.data });
   } catch (error) {
     yield post({ type: Types.VALIDATION_PROFILE_FAIL, errors: [error] });
   }
