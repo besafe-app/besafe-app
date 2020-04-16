@@ -1,14 +1,16 @@
-import { takeLatest, get, post } from 'redux-saga/effects';
-import { Types } from '../ducks/preConditions';
+import { takeLatest, post } from 'redux-saga/effects';
+import { Types } from '../ducks/identification';
 import { api } from 'utils';
 import constants from 'config/constants';
 
-function* createProfile({ payload: { name, phone } }) {
+function* createProfile({ payload: { nickname, phoneNumber } }) {
+  console.warn(nickname);
+  console.warn(phoneNumber);
   try {
     const response = api.post(constants.api.identification.create, {
       params: {
-        name: name,
-        phone: phone
+        name: nickname,
+        phone: phoneNumber
       }
       // ,
       // headers: {

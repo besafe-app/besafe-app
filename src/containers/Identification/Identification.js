@@ -30,7 +30,8 @@ const IdentificationContainer = () => {
     if (values.nickname && values.phoneNumber) {
       dispatch(
         identificationActions.createProfileRequest({
-          values
+          nickname: values.nickname,
+          phoneNumber: values.phoneNumber
         })
       );
       navigate('ValidationPhone');
