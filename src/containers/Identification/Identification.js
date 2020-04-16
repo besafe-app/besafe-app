@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { getStoreItem } from 'config/storage';
 
 import { Creators as identificationActions } from 'store/ducks/identification';
 import { IdentificationPresentation } from 'components/presentation/Identification';
@@ -28,12 +29,16 @@ const IdentificationContainer = () => {
 
   const onSubmit = () => {
     if (values.nickname && values.phoneNumber) {
-      dispatch(
-        identificationActions.createProfileRequest({
-          nickname: values.nickname,
-          phoneNumber: values.phoneNumber
-        })
-      );
+      getStoreItem('@BeSafe:token', () => {
+        dispatch(
+          identificationActions.createProfileRequest({
+            nickname: values.nickname,
+            phoneNumber: values.phoneNumber,
+            token
+          })
+        );
+      });
+
       navigate('ValidationPhone');
     } else {
       setMessageError(translate('required-field'));

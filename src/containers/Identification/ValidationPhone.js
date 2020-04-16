@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { getStoreItem } from 'config/storage';
 
 import { Creators as identificationActions } from 'store/ducks/identification';
 import { ValidationPhonePresentation } from 'components/presentation/Identification';
@@ -39,11 +40,14 @@ const ValidationPhoneContainer = () => {
 
   const reSendToken = () => {
     if (values.code) {
-      dispatch(
-        identificationActions.validationProfileRequest({
-          values
-        })
-      );
+      getStoreItem('@BeSafe:token', () => {
+        dispatch(
+          identificationActions.validationProfileRequest({
+            values,
+            token
+          })
+        );
+      });
     } else {
       setMessageError(translate('required-field'));
       dispatch(identificationActions.validationProfileFail(['required-field']));

@@ -3,19 +3,16 @@ import { Types } from '../ducks/identification';
 import { api } from 'utils';
 import constants from 'config/constants';
 
-function* createProfile({ payload: { nickname, phoneNumber } }) {
-  console.warn(nickname);
-  console.warn(phoneNumber);
+function* createProfile({ payload: { nickname, phoneNumber, token } }) {
   try {
     const response = api.post(constants.api.identification.create, {
       params: {
         name: nickname,
         phone: phoneNumber
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-      // ,
-      // headers: {
-      //   Authorization: `Bearer ${token}`
-      // }
     });
 
     yield post({ type: Types.CREATE_PROFILE_SUCCESS, id: response.data });
@@ -24,17 +21,16 @@ function* createProfile({ payload: { nickname, phoneNumber } }) {
   }
 }
 
-function* validationProfile({ payload: { id, code } }) {
+function* validationProfile({ payload: { id, code, token } }) {
   try {
     const response = api.post(constants.api.identification.validate, {
       params: {
         id: id,
         code: code
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-      // ,
-      // headers: {
-      //   Authorization: `Bearer ${token}`
-      // }
     });
     yield post({ type: Types.VALIDATION_PROFILE_SUCCESS, data: response.data });
   } catch (error) {
