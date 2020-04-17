@@ -36,8 +36,12 @@ const ValidationPhonePresentation = ({
     startSeconds();
   }, []);
 
+  useEffect(() => {
+    seconds === 0 && startSeconds();
+  }, [reSendToken]);
+
   const startSeconds = () => {
-    let restart = 3;
+    let restart = 60;
     const start = setInterval(() => {
       restart--;
       setSeconds(restart);

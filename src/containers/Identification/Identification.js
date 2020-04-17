@@ -9,7 +9,7 @@ import { IdentificationPresentation } from 'components/presentation/Identificati
 const IdentificationContainer = () => {
   const dispatch = useDispatch();
   const { navigate } = useNavigation();
-  const reducer = useSelector(({ profile }) => profile);
+  const reducer = useSelector(({ identification }) => identification);
 
   const [values, setValues] = useState({ nickname: '', phoneNumber: '' });
   const [messageError, setMessageError] = useState('');
@@ -38,7 +38,6 @@ const IdentificationContainer = () => {
           })
         );
       });
-
       navigate('ValidationPhone');
     } else {
       setMessageError(translate('required-field'));

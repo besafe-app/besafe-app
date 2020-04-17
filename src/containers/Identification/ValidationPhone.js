@@ -12,7 +12,6 @@ const ValidationPhoneContainer = () => {
   const { i18n, t: translate } = useTranslation();
 
   const [values, setValues] = useState({ name: '' });
-  const [resend, setReSend] = useState(false);
   const [messageError, setMessageError] = useState('');
 
   useEffect(() => {
@@ -28,17 +27,6 @@ const ValidationPhoneContainer = () => {
   };
 
   const onSubmit = () => {
-    if (!resend) {
-      setReSend(true);
-      dispatch(
-        identificationActions.validationProfileRequest({
-          values
-        })
-      );
-    }
-  };
-
-  const reSendToken = () => {
     if (values.code) {
       getStoreItem('@BeSafe:token', () => {
         dispatch(
@@ -59,7 +47,6 @@ const ValidationPhoneContainer = () => {
       onSubmit={onSubmit}
       setFieldValue={setFieldValue}
       values={values}
-      reSendToken={reSendToken}
       isLoading={reducer.isLoading}
       errors={reducer.errors}
       messageError={messageError}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { getLanguage } from 'helpers';
-import NumberFormat from 'react-number-format';
+import { TextInputMask } from 'react-native-masked-text';
 
 import Toast from 'components/core/Toast';
 import TextInput from 'components/core/TextInput';
@@ -27,6 +28,10 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
     }
   }, [values]);
 
+  const validation = value => {
+    setFieldValue('phoneNumber', value);
+  };
+
   return (
     <Container>
       <FormContainer>
@@ -39,11 +44,16 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
           value={values.nickname}
           onChange={value => setFieldValue('nickname', value)}
         />
-        <TextInput
-          placeholder={translate('identification-phone-number')}
-          marginTop={24}
+        <TextInputMask
+          style={styles.maskInput}
+          type={'cel-phone'}
+          options={{
+            maskType: 'BRL',
+            withDDD: true,
+            dddMask: '(99) '
+          }}
           value={values.phoneNumber}
-          onChange={value => setFieldValue('phoneNumber', value)}
+          onChangeText={value => validation(value)}
         />
         <LabelContainer>
           <Label fonSize={16} lineHeight={24}>
@@ -62,3 +72,18 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
 };
 
 export default IdentificationPresentation;
+
+const styles = StyleSheet.create({
+  maskInput: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: COLORS.grey,
+    backgroundColor: 'transparent',
+    borderRadius: 8,
+    marginTop: 10,
+    paddingTop: 16,
+    paddingBottom: 12,
+    paddingLeft: 16,
+    fontSize: 18
+  }
+});
