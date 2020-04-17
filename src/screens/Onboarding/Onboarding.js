@@ -1,5 +1,4 @@
 import React from 'react';
-import { useWindowDimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
@@ -9,11 +8,12 @@ import Button from 'components/core/Button';
 import COLORS from 'config/colors';
 import { setStoreItem } from 'config/storage';
 
-import { StyledContainer } from './styles';
+import headerOnboarding from 'assets/icons/HeaderOnboarding.png';
+
+import { StyledContainer, HeaderImage } from './styles';
 
 const Onboarding = () => {
   const { replace } = useNavigation();
-  const { width } = useWindowDimensions();
   const { t } = useTranslation();
 
   const onPressAgreed = () => {
@@ -22,18 +22,19 @@ const Onboarding = () => {
 
   return (
     <StyledContainer>
+      <HeaderImage source={headerOnboarding} />
       <Label
         fontWeight='bold'
-        fontSize={40}
-        lineHeight={50}
+        fontSize={24}
+        lineHeight={34}
         color={COLORS.black}
         textAlign='center'
       >
         {t('onboarding-title')}
       </Label>
       <Label
-        fontSize={21}
-        lineHeight={25}
+        fontSize={16}
+        lineHeight={24}
         color={COLORS.black}
         textAlign='center'
         marginTop={30}
@@ -41,7 +42,9 @@ const Onboarding = () => {
       >
         {t('onboarding-text')}
       </Label>
-      <Button onPress={onPressAgreed}>{t('onboarding-buttonAgree')}</Button>
+      <Button onPress={onPressAgreed} marginBottom={64}>
+        {t('onboarding-buttonAgree')}
+      </Button>
     </StyledContainer>
   );
 };

@@ -10,6 +10,8 @@ import Label from 'components/core/Label';
 import COLORS from 'config/colors';
 import Button from 'components/core/Button';
 
+import success from 'assets/icons/Success.png';
+
 const Success = ({
   route: {
     params: { title, subTitle }
@@ -24,7 +26,7 @@ const Success = ({
     <Container>
       <View>
         <Header customBackFunction={goBack} />
-        <SuccessIcon />
+        <SuccessIcon source={success} />
         <View>
           <Label
             textAlign='center'

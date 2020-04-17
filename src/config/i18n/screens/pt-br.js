@@ -10,8 +10,8 @@ export default {
   'risk-assessment-subtitle': 'Marque os comportamentos de risco em que você esteve.',
   'profile-saved-successfully':
     'Agora é hora de registrar como você se sente. Por favor, seja atencioso e fique tranquilo: vamos lidar com isso juntos!',
-  'onboarding-title': 'Título do Onboarding',
+  'onboarding-title': 'Ajude-nos, por favor, a combater o Coronavírus (COVID19)',
   'onboarding-text':
-    'Parágrafo curto falando do objetivo do app e da importância de todos nós se juntarmos contra o Corona.',
-  'onboarding-buttonAgree': 'Concordo'
+    'A solução BeSafe tem como objetivo auxiliar na construção de políticas de enfrentamento ao Coronavírus (COVID19). O primeiro passo é identificar os cidadãos, mapeando e seguindo os indivíduos com doenças preexistentes. Temos a certeza de que se todos trabalharmos juntos conseguiremos vencer esse desafio!',
+  'onboarding-buttonAgree': 'Continuar'
 };
