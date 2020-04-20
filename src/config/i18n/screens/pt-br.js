@@ -24,5 +24,7 @@ export default {
   'identification-text': 'Enviaremos um código de verificação por Mensagem (SMS) no seu celular.',
   'identification-nickname': 'Como quer ser chamado',
   'identification-phone-number': 'Celular',
-  'identification-title-receive-sms': 'Receber código por SMS'
+  'identification-title-receive-sms': 'Receber código por SMS',
+  'identification-maskType': 'BRL',
+  'identification-dddMask': '(99) '
 };

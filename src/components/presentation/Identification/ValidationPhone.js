@@ -22,7 +22,7 @@ const ValidationPhonePresentation = ({
   const [seconds, setSeconds] = useState(0);
   const [disabledButtom, setDisabledButtom] = useState(true);
   const [disabled, setDisabled] = useState(true);
-  const { t: translate, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(getLanguage());
@@ -56,15 +56,15 @@ const ValidationPhonePresentation = ({
     <Container>
       <FormContainer>
         <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-          {translate('verification-title')}
+          {t('verification-title')}
         </Label>
         <LabelContainer>
           <Label fonSize={16} lineHeight={24}>
-            {translate('verification-text')}
+            {t('verification-text')}
           </Label>
         </LabelContainer>
         <TextInput
-          placeholder={translate('verification-code')}
+          placeholder={t('verification-code')}
           marginTop={24}
           onChange={value => setFieldValue('code', value)}
           value={values.code}
@@ -72,7 +72,7 @@ const ValidationPhonePresentation = ({
       </FormContainer>
       <ButtonContainer>
         <Button disabled={disabled} action={() => onSubmit()}>
-          {translate('verification-label')}
+          {t('verification-label')}
         </Button>
         <Button
           style={{ color: seconds == 0 ? COLORS.white : COLORS.primary }}
@@ -82,8 +82,8 @@ const ValidationPhonePresentation = ({
           onPress={reSendToken}
         >
           {seconds <= 0
-            ? translate('verification-resend-code')
-            : `${translate('verification-resend-code-in')} ${seconds}s`}
+            ? t('verification-resend-code')
+            : `${t('verification-resend-code-in')} ${seconds}s`}
         </Button>
       </ButtonContainer>
       <Toast show={errors.length !== 0} type='error' message={messageError} />

@@ -20,9 +20,11 @@ export default {
   'verification-text': 'We sent a verification code. Please enter it below.',
   'verification-resend-code': 'Resend code',
   'verification-resend-code-in': 'Resend code in',
-  'identification-title': 'Dados básicos',
-  'identification-text': 'Enviaremos um código de verificação por Mensagem (SMS) no seu celular.',
-  'identification-nickname': 'Como quer ser chamado',
-  'identification-phone-number': 'Celular',
-  'identification-title-receive-sms': 'Receber código por SMS'
+  'identification-title': 'Basic Information',
+  'identification-text': 'We will send a verification code by Message (SMS) on your cell phone.',
+  'identification-nickname': 'How to be called',
+  'identification-phone-number': 'Cell Phone',
+  'identification-title-receive-sms': 'Receive code by SMS',
+  'identification-maskType': 'EUA',
+  'identification-dddMask': '(999) '
 };
