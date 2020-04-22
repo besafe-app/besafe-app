@@ -1,40 +1,89 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { getLanguage } from 'helpers';
+import { TextInputMask } from 'react-native-masked-text';
 
-import Label from 'components/core/Label';
+import Toast from 'components/core/Toast';
 import TextInput from 'components/core/TextInput';
+import Label from 'components/core/Label';
 import Button from 'components/core/Button';
+
 import COLORS from 'config/colors';
 import { LabelContainer, ButtonContainer, FormContainer, Container } from './styles';
 
-const IdentificationPresentation = () => {
-  const { navigate } = useNavigation();
+const IdentificationPresentation = ({ onSubmit, errors, messageError, values, setFieldValue }) => {
+  const { t, i18n } = useTranslation();
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    i18n.changeLanguage(getLanguage());
+  }, []);
+
+  useEffect(() => {
+    if (values.nickname.length !== 0 && values.phoneNumber.length !== 0) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [values]);
+
+  const validation = value => {
+    setFieldValue('phoneNumber', value);
+  };
 
   return (
     <Container>
       <FormContainer>
         <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-          Dados básicos
+          {t('identification-title')}
         </Label>
-        <TextInput placeholder='Como quer ser chamado' marginTop={24} />
-        <TextInput placeholder='Celular' marginTop={24} />
+        <TextInput
+          placeholder={t('identification-nickname')}
+          marginTop={24}
+          value={values.nickname}
+          onChange={value => setFieldValue('nickname', value)}
+        />
+        <TextInputMask
+          style={styles.maskInput}
+          type={'cel-phone'}
+          options={{
+            maskType: `${t('identification-maskType')}`,
+            dddMask: `${t('identification-dddMask')}`,
+            withDDD: true
+          }}
+          value={values.phoneNumber}
+          onChangeText={value => validation(value)}
+        />
         <LabelContainer>
           <Label fonSize={16} lineHeight={24}>
-            Enviaremos um código de verificação por Mensagem (SMS) no seu celular.
+            {t('identification-text')}
           </Label>
         </LabelContainer>
       </FormContainer>
       <ButtonContainer>
-        <Button label='Receber código por SMS' action={() => navigate('Profile')} />
-        <Button
-          label='Receber por WhatsApp'
-          primary={false}
-          marginTop={20}
-          action={() => navigate('Profile')}
-        />
+        <Button disabled={disabled} marginTop={20} onPress={onSubmit}>
+          {t('identification-title-receive-sms')}
+        </Button>
       </ButtonContainer>
+      <Toast show={errors.length !== 0} type='error' message={messageError} />
     </Container>
   );
 };
 
 export default IdentificationPresentation;
+
+const styles = StyleSheet.create({
+  maskInput: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: COLORS.grey,
+    backgroundColor: 'transparent',
+    borderRadius: 8,
+    marginTop: 10,
+    paddingTop: 16,
+    paddingBottom: 12,
+    paddingLeft: 16,
+    fontSize: 18
+  }
+});

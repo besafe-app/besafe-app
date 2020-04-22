@@ -13,5 +13,18 @@ export default {
   'onboarding-title': 'Título do Onboarding',
   'onboarding-text':
     'Parágrafo curto falando do objetivo do app e da importância de todos nós se juntarmos contra o Corona.',
-  'onboarding-buttonAgree': 'Concordo'
+  'onboarding-buttonAgree': 'Concordo',
+  'verification-label': 'Verificar',
+  'verification-code': 'Código de Verificação',
+  'verification-title': 'Verificação',
+  'verification-text': 'Enviamos um código de verificação. Por favor insira ele abaixo.',
+  'verification-resend-code': 'Reenviar código',
+  'verification-resend-code-in': 'Reenviar código em',
+  'identification-title': 'Dados básicos',
+  'identification-text': 'Enviaremos um código de verificação por Mensagem (SMS) no seu celular.',
+  'identification-nickname': 'Como quer ser chamado',
+  'identification-phone-number': 'Celular',
+  'identification-title-receive-sms': 'Receber código por SMS',
+  'identification-maskType': 'BRL',
+  'identification-dddMask': '(99) '
 };
