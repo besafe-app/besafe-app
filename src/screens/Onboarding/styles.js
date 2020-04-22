@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
 
-export const StyledContainer = styled.View`
+export const StyledContainer = styled.ScrollView`
   flex: 1;
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 50px;
-  padding-horizontal: 25px;
+  padding: 0px 25px;
+`;
+
+export const HeaderImage = styled.Image`
+  margin-top: 40px;
+  width: 281px;
 `;
