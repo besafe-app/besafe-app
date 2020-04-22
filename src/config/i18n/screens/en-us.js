@@ -13,5 +13,18 @@ export default {
   'onboarding-title': 'Please help us to fight Coronavirus (COVID19)',
   'onboarding-text':
     'The BeSafe solution aims to assist in the construction of policies to fight Coronavirus (COVID19). The first step is to identify citizens, mapping and tracking individuals with pre-existing diseases. We are sure that if we all work together we will be able to overcome this challenge! ',
-  'onboarding-buttonAgree': 'I agree'
+  'onboarding-buttonAgree': 'I agree',
+  'verification-label': 'Ckeck',
+  'verification-code': 'Verfiication Code',
+  'verification-title': 'Verification',
+  'verification-text': 'We sent a verification code. Please enter it below.',
+  'verification-resend-code': 'Resend code',
+  'verification-resend-code-in': 'Resend code in',
+  'identification-title': 'Basic Information',
+  'identification-text': 'We will send a verification code by Message (SMS) on your cell phone.',
+  'identification-nickname': 'How to be called',
+  'identification-phone-number': 'Cell Phone',
+  'identification-title-receive-sms': 'Receive code by SMS',
+  'identification-maskType': 'INTERNATIONAL',
+  'identification-dddMask': '(999) '
 };

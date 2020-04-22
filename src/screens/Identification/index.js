@@ -1,2 +1,3 @@
 import IdentificationScreen from './Identification';
-export { IdentificationScreen };
+import ValidationPhoneScreen from './ValidationPhone';
+export { IdentificationScreen, ValidationPhoneScreen };
