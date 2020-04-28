@@ -33,7 +33,7 @@ const ProfilePresentation = ({
           {translate('profile-create')}
         </Label>
         <TextInput
-          placeholder={translate('profile-fullname')}
+          placeholder={translate('profile-full-name')}
           marginTop={24}
           onChange={value => setFieldValue('name', value)}
           value={values.name}
@@ -55,7 +55,7 @@ const ProfilePresentation = ({
           onValueChange={value => setFieldValue('gender', value)}
         />
         <DatePicker
-          label={translate('profile-birthdate')}
+          label={translate('profile-birth-date')}
           marginTop={24}
           value={values.date}
           onChange={value => setFieldValue('date', new Date(value))}
