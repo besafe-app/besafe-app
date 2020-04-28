@@ -1,6 +1,6 @@
 export default {
   'profile-birthdate': 'Birthdate',
-  'profile-fullname': 'Full name',
+  'profile-full-name': 'Full name',
   'profile-create': 'Create profile',
   'profile-male': 'Male',
   'profile-female': 'Female',
@@ -10,12 +10,12 @@ export default {
   'risk-assessment-subtitle': "Check the risky behaviors you've been on.",
   'profile-saved-successfully':
     "Now it's time to record how you feel. Please be considerate and rest assured: let's deal with this together!",
-  'onboarding-title': 'Please help us to fight Coronavirus (COVID19)',
+  'onboarding-title': 'Please help us to fight Coronavirus (COVID-19)',
   'onboarding-text':
-    'The BeSafe solution aims to assist in the construction of policies to fight Coronavirus (COVID19). The first step is to identify citizens, mapping and tracking individuals with pre-existing diseases. We are sure that if we all work together we will be able to overcome this challenge! ',
+    'The BeSafe solution aims to assist in the construction of policies to fight Coronavirus (COVID-19). The first step is to identify citizens, mapping and tracking individuals with pre-existing diseases. We are sure that if we all work together we will be able to overcome this challenge! ',
   'onboarding-buttonAgree': 'I agree',
-  'verification-label': 'Ckeck',
-  'verification-code': 'Verfiication Code',
+  'verification-label': 'Check',
+  'verification-code': 'Verification Code',
   'verification-title': 'Verification',
   'verification-text': 'We sent a verification code. Please enter it below.',
   'verification-resend-code': 'Resend code',

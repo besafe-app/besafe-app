@@ -33,7 +33,7 @@ const ProfilePresentation = ({
           {translate('profile-create')}
         </Label>
         <TextInput
-          placeholder={translate('profile-fullname')}
+          placeholder={translate('profile-full-name')}
           marginTop={24}
           onChange={value => setFieldValue('name', value)}
           value={values.name}
