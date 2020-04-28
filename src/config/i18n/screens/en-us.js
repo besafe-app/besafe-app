@@ -25,6 +25,8 @@ export default {
   'identification-nickname': 'How to be called',
   'identification-phone-number': 'Cell Phone',
   'identification-title-receive-sms': 'Receive code by SMS',
+  'identification-title-save': 'Save',
+  'identification-phone-number': 'Insert phone number',
   'identification-maskType': 'INTERNATIONAL',
   'identification-dddMask': '(999) '
 };

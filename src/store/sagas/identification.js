@@ -1,23 +1,24 @@
-import { takeLatest, post } from 'redux-saga/effects';
+import { takeLatest, put } from 'redux-saga/effects';
 import { Types } from '../ducks/identification';
 import { api } from 'utils';
 import constants from 'config/constants';
 
-function* createProfile({ payload: { nickname, phoneNumber, token } }) {
+function* createProfile({ payload }) {
   try {
     const response = api.post(constants.api.identification.create, {
       params: {
-        name: nickname,
-        phone: phoneNumber
-      },
-      headers: {
-        Authorization: `Bearer ${token}`
+        nickname: payload.nickname,
+        phone: payload.phoneNumber
       }
+      // headers: {
+      //   Authorization: `Bearer ${payload.dtoken}`
+      // }
     });
-
-    yield post({ type: Types.CREATE_PROFILE_SUCCESS, id: response.data });
+    console.log({ response });
+    yield put({ type: Types.CREATE_PROFILE_SUCCESS, success: true, data: response.data });
   } catch (error) {
-    yield post({ type: Types.CREATE_PROFILE_FAIL, errors: [error] });
+    console.log({ error });
+    yield put({ type: Types.CREATE_PROFILE_FAIL, errors: [error] });
   }
 }
 
@@ -32,9 +33,9 @@ function* validationProfile({ payload: { id, code, token } }) {
         Authorization: `Bearer ${token}`
       }
     });
-    yield post({ type: Types.VALIDATION_PROFILE_SUCCESS, data: response.data });
+    yield put({ type: Types.VALIDATION_PROFILE_SUCCESS, token: response.token });
   } catch (error) {
-    yield post({ type: Types.VALIDATION_PROFILE_FAIL, errors: [error] });
+    yield put({ type: Types.VALIDATION_PROFILE_FAIL, errors: [error] });
   }
 }
 

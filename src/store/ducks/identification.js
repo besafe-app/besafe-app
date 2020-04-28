@@ -12,17 +12,21 @@ export const { Types, Creators } = createActions({
 const INITIAL_STATE = {
   isLoading: false,
   data: {},
-  errors: []
+  errors: [],
+  success: false
 };
 
 const createProfileRequest = () => ({ ...INITIAL_STATE, isLoading: true });
 
-const createProfileSuccess = (state, { data }) => ({
-  ...state,
-  data,
-  isLoading: false,
-  errors: []
-});
+const createProfileSuccess = (state, { data }) => {
+  return {
+    ...state,
+    data,
+    isLoading: false,
+    errors: [],
+    success: true
+  };
+};
 
 const createProfileFail = (state, { errors }) => {
   return {
