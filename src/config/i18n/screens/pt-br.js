@@ -1,5 +1,5 @@
 export default {
-  'profile-birth-date': 'Data de nascimento',
+  'profile-birthdate': 'Data de nascimento',
   'profile-full-name': 'Nome completo',
   'profile-create': 'Criar perfil',
   'profile-male': 'Masculino',

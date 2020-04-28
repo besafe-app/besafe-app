@@ -55,7 +55,7 @@ const ProfilePresentation = ({
           onValueChange={value => setFieldValue('gender', value)}
         />
         <DatePicker
-          label={translate('profile-birth-date')}
+          label={translate('profile-birthdate')}
           marginTop={24}
           value={values.date}
           onChange={value => setFieldValue('date', new Date(value))}
