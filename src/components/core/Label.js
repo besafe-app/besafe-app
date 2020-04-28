@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import COLORS from 'config/colors';
+import TYPOGRAPHY from 'config/typography';
 
 const Label = props => <StyledLabel {...props}>{props.children}</StyledLabel>;
 
@@ -28,7 +29,8 @@ Label.defaultProps = {
   textAlign: 'left',
   fontStyle: 'normal',
   fontSize: 14,
-  lineHeight: 24
+  lineHeight: 24,
+  typography: TYPOGRAPHY.regular
 };
 
 Label.propTypes = {
@@ -52,6 +54,7 @@ Label.propTypes = {
   fontSize: PropTypes.number,
   minHeight: PropTypes.number,
   lineHeight: PropTypes.number,
+  typography: PropTypes.array,
   children: PropTypes.any.isRequired
 };
 
@@ -59,14 +62,14 @@ const StyledLabel = styled.Text`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-height: ${({ minHeight }) => minHeight};
-  margin-top: ${({ marginTop }) => marginTop};
-  margin-bottom: ${({ marginBottom }) => marginBottom};
-  margin-left: ${({ marginLeft }) => marginLeft};
-  margin-right: ${({ marginRight }) => marginRight};
-  padding-top: ${({ paddingTop }) => paddingTop};
-  padding-bottom: ${({ paddingBottom }) => paddingBottom};
-  padding-left: ${({ paddingLeft }) => paddingLeft};
-  padding-right: ${({ paddingRight }) => paddingRight};
+  margin-top: ${({ marginTop }) => marginTop}px;
+  margin-bottom: ${({ marginBottom }) => marginBottom}px;
+  margin-left: ${({ marginLeft }) => marginLeft}px;
+  margin-right: ${({ marginRight }) => marginRight}px;
+  padding-top: ${({ paddingTop }) => paddingTop}px;
+  padding-bottom: ${({ paddingBottom }) => paddingBottom}px;
+  padding-left: ${({ paddingLeft }) => paddingLeft}px;
+  padding-right: ${({ paddingRight }) => paddingRight}px;
   border-bottom-width: ${({ borderBottomWidth }) => borderBottomWidth};
   border-bottom-color: ${({ borderBottomColor }) => borderBottomColor};
   background-color: ${({ backgroundColor }) => backgroundColor};
@@ -77,6 +80,7 @@ const StyledLabel = styled.Text`
   font-size: ${({ fontSize }) => fontSize}px;
   font-weight: ${({ fontWeight }) => fontWeight};
   line-height: ${({ lineHeight }) => lineHeight}px;
+  ${props => props.typography};
 `;
 
 export default Label;

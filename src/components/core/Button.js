@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import COLORS from 'config/colors';
 import Loader from './Loader';
+
+import COLORS from 'config/colors';
 
 const Button = props => (
   <StyledTouchableOpacity onPress={props.onPress} {...props}>
