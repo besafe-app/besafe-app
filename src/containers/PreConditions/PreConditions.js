@@ -55,7 +55,7 @@ const PreConditionsContainer = () => {
 
   const submit = () => {
     if (conditions.length === 0) {
-      navigate('Home');
+      navigate('Dashboard');
     } else {
       dispatch(
         savePreConditionsRequest({
@@ -63,7 +63,7 @@ const PreConditionsContainer = () => {
           token
         })
       );
-      navigate('Home');
+      navigate('Dashboard');
     }
   };
 

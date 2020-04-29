@@ -26,5 +26,6 @@ export default {
   'identification-phone-number': 'Cell Phone',
   'identification-title-receive-sms': 'Receive code by SMS',
   'identification-maskType': 'INTERNATIONAL',
-  'identification-dddMask': '(999) '
+  'identification-dddMask': '(999) ',
+  'dashboard-question-feeling-today': 'How are you feeling today?'
 };

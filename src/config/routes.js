@@ -11,7 +11,7 @@ import { PreConditionsScreen } from 'screens/PreConditions';
 import { RiskScreen } from 'screens/Risk';
 import { SuccessScreen } from 'screens/Success';
 import { OnboardingScreen } from 'screens/Onboarding';
-import { HomeScreen } from 'screens/Home';
+import { DashboardScreen } from 'screens/Dashboard';
 
 const Stack = createStackNavigator();
 
@@ -19,9 +19,9 @@ const Navigator = () => {
   const [initialRoute, setInitialRoute] = useState('');
 
   useLayoutEffect(() => {
-    getStoreItem('@BeSafe:TermAgreed', termAcepted => {
-      // setInitialRoute(termAcepted === 'true' ? 'Profile' : 'Onboarding');
-      setInitialRoute('Onboarding');
+    getStoreItem('@BeSafe:TermAgreed', termAccepted => {
+      // setInitialRoute(termAccepted === 'true' ? 'Profile' : 'Onboarding');
+      setInitialRoute('Dashboard');
     });
   }, []);
 
@@ -36,7 +36,7 @@ const Navigator = () => {
         <Stack.Screen name='PreConditions' component={PreConditionsScreen} />
         <Stack.Screen name='Success' component={SuccessScreen} />
         <Stack.Screen name='Risk' component={RiskScreen} />
-        <Stack.Screen name='Home' component={HomeScreen} />
+        <Stack.Screen name='Dashboard' component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

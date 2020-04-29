@@ -13,7 +13,7 @@ import { getLanguage } from 'helpers';
 
 const RiskPresentation = () => {
   const { navigate, goBack } = useNavigation();
-  const { i18n, t: translate } = useTranslation();
+  const { t: translate, i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(getLanguage());

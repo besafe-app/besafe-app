@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Loader from './Loader';
 
 import COLORS from 'config/colors';
+import TYPHOGRAPHY from 'config/typography';
 
 const Button = props => (
   <StyledTouchableOpacity onPress={props.onPress} {...props}>
@@ -16,7 +17,7 @@ const Button = props => (
 
 Button.defaultProps = {
   width: '100%',
-  height: '50',
+  height: '50px',
   justifyContent: 'center',
   alignItems: 'center',
   textColor: COLORS.white,
@@ -39,7 +40,8 @@ Button.defaultProps = {
   loadingColor: COLORS.primary,
   onPress: () => {},
   isLoading: false,
-  disabled: false
+  disabled: false,
+  typography: TYPOGRAPHY.regular
 };
 
 Button.propTypes = {
@@ -68,7 +70,8 @@ Button.propTypes = {
   children: PropTypes.shape({}).isRequired,
   onPress: PropTypes.func,
   isLoading: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  typography: PropTypes.array
 };
 
 const StyledTouchableOpacity = styled.TouchableOpacity`
@@ -77,10 +80,10 @@ const StyledTouchableOpacity = styled.TouchableOpacity`
   display: flex;
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
-  margin-top: ${({ marginTop }) => marginTop};
-  margin-bottom: ${({ marginBottom }) => marginBottom};
-  margin-left: ${({ marginLeft }) => marginLeft};
-  margin-right: ${({ marginRight }) => marginRight};
+  margin-top: ${({ marginTop }) => marginTop}px;
+  margin-bottom: ${({ marginBottom }) => marginBottom}px;
+  margin-left: ${({ marginLeft }) => marginLeft}px;
+  margin-right: ${({ marginRight }) => marginRight}px;
   border-width: ${({ borderWidth }) => borderWidth};
   border-color: ${({ borderColor }) => borderColor};
   border-radius: ${({ borderRadius }) => borderRadius};
@@ -91,6 +94,7 @@ const StyledTouchableOpacity = styled.TouchableOpacity`
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
   right: ${({ right }) => right};
+  ${props => props.typography};
 `;
 
 const StyledText = styled.Text`
