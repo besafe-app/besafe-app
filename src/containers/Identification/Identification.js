@@ -22,16 +22,13 @@ const IdentificationContainer = () => {
   }, [reducer.errors]);
 
   useEffect(() => {
-    // reducer.success && navigate('ValidationPhone');
     if (reducer.success) {
       Geolocation.getCurrentPosition(
         position => {
           navigate('Profile');
-          console.log(position);
         },
         error => {
-          // See error code charts below.
-          console.log(error.code, error.message);
+          setMessageError(error.message);
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
       );

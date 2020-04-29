@@ -10,14 +10,9 @@ function* createProfile({ payload }) {
         nickname: payload.nickname,
         phone: payload.phoneNumber
       }
-      // headers: {
-      //   Authorization: `Bearer ${payload.dtoken}`
-      // }
     });
-    console.log({ response });
     yield put({ type: Types.CREATE_PROFILE_SUCCESS, success: true, data: response.data });
   } catch (error) {
-    console.log({ error });
     yield put({ type: Types.CREATE_PROFILE_FAIL, errors: [error] });
   }
 }

@@ -25,7 +25,6 @@ export default {
   'identification-nickname': 'Como quer ser chamado',
   'identification-phone-number': 'Insira o numero do seu telefone',
   'identification-title-receive-sms': 'Receber código por SMS',
-  'identification-title-save': 'Salvar',
   'identification-maskType': 'BRL',
   'identification-dddMask': '(99) '
 };
