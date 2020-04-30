@@ -29,7 +29,7 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
   }, [values]);
 
   const validation = value => {
-    setFieldValue('phoneNumber', value);
+    if (value.length <= 15 || value.length <= 14) setFieldValue('phoneNumber', value);
   };
 
   return (
@@ -45,6 +45,7 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
           onChange={value => setFieldValue('nickname', value)}
         />
         <TextInputMask
+          placeholder={t('identification-phone-number')}
           style={styles.maskInput}
           type={'cel-phone'}
           options={{

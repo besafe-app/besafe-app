@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { getStoreItem } from 'config/storage';
+import Geolocation from '@react-native-community/geolocation';
 
 import { Creators as identificationActions } from 'store/ducks/identification';
 import { IdentificationPresentation } from 'components/presentation/Identification';
@@ -20,6 +21,20 @@ const IdentificationContainer = () => {
     }
   }, [reducer.errors]);
 
+  useEffect(() => {
+    if (reducer.success) {
+      Geolocation.getCurrentPosition(
+        position => {
+          navigate('Profile');
+        },
+        error => {
+          setMessageError(error.message);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+      );
+    }
+  }, [reducer.success]);
+
   const setFieldValue = (field, value) => {
     setValues({
       ...values,
@@ -28,8 +43,8 @@ const IdentificationContainer = () => {
   };
 
   const onSubmit = () => {
-    if (values.nickname && values.phoneNumber) {
-      getStoreItem('@BeSafe:token', () => {
+    if (values.nickname !== '' && values.phoneNumber !== '') {
+      getStoreItem('@BeSafe:token', token => {
         dispatch(
           identificationActions.createProfileRequest({
             nickname: values.nickname,
@@ -38,7 +53,6 @@ const IdentificationContainer = () => {
           })
         );
       });
-      navigate('ValidationPhone');
     } else {
       setMessageError(translate('required-field'));
       dispatch(identificationActions.createProfileFail(['required-field']));
