@@ -37,7 +37,7 @@ const ValidationPhonePresentation = ({
   }, []);
 
   useEffect(() => {
-    seconds === 0 && startSeconds();
+    seconds == 0 && startSeconds();
   }, [reSendToken]);
 
   const startSeconds = () => {

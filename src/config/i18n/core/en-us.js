@@ -1,5 +1,6 @@
 export default {
   next: 'Next',
+  save: 'Save',
   gender: 'Gender',
   'register-completed': 'Register completed',
   'lets-go': "Let's go!",
