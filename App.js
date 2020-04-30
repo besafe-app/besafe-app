@@ -10,6 +10,8 @@ import Navigator from 'config/routes';
 import COLORS from 'config/colors';
 
 const App = () => {
+  console.disableYellowBox = true; // Disable Warnings
+
   useEffect(() => {
     SplashScreen.hide();
   }, []);
