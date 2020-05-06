@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { getLanguage } from 'helpers';
 
-// import Toast from 'components/core/Toast';
 import Label from 'components/core/Label';
 import Button from 'components/core/Button';
 
@@ -40,7 +39,6 @@ const DashboardPresentation = () => {
           </Button>
         </ButtonContainer>
       </Content>
-      {/* <Toast show={errors.length !== 0} type='error' message={messageError} /> */}
     </Container>
   );
 };
