@@ -18,11 +18,11 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DB15E15752A52A58E900151 /* libPods-beSafeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1DE6F26C81BE85479B3308 /* libPods-beSafeApp.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* beSafeAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* beSafeAppTests.m */; };
+		52F5D0972D464DF8B1F48ADD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B558B6D3E50A4C139B5F6603 /* SourceSansPro-Regular.ttf */; };
 		54C4593FF644781931F563A8 /* libPods-beSafeApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22385D5101768409BB304D35 /* libPods-beSafeApp-tvOS.a */; };
 		657A0054ECC0833D3CE4140B /* libPods-beSafeApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EF434191F64E861747E5F4 /* libPods-beSafeApp-tvOSTests.a */; };
 		CD9464EA7195AB45164A926A /* libPods-beSafeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E516AA28796B28DCF00D3 /* libPods-beSafeAppTests.a */; };
 		DB07E30E9AB840539761A321 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9B8BBEAEEF74616881A9048 /* SourceSansPro-Bold.ttf */; };
-		52F5D0972D464DF8B1F48ADD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B558B6D3E50A4C139B5F6603 /* SourceSansPro-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		0415F07724371ED70077E11D /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../src/assets/logo.png; sourceTree = "<group>"; };
 		05C3E44CB9EA5D083AEDCD92 /* Pods-beSafeApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beSafeApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-beSafeApp-tvOS/Pods-beSafeApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		0E5E516AA28796B28DCF00D3 /* libPods-beSafeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beSafeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* beSafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beSafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Be Safe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Be Safe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = beSafeApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = beSafeApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -68,11 +68,11 @@
 		744BECBCF6F9FD95E38D4D3B /* Pods-beSafeApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beSafeApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-beSafeApp-tvOSTests/Pods-beSafeApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		86F80AA02ECB80DC0DFEE26C /* Pods-beSafeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beSafeApp.release.xcconfig"; path = "Target Support Files/Pods-beSafeApp/Pods-beSafeApp.release.xcconfig"; sourceTree = "<group>"; };
 		AF1DE6F26C81BE85479B3308 /* libPods-beSafeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beSafeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B558B6D3E50A4C139B5F6603 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Regular.ttf"; path = "../src/assets/fonts/SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		B970379712D3D22970ED87F9 /* Pods-beSafeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beSafeAppTests.release.xcconfig"; path = "Target Support Files/Pods-beSafeAppTests/Pods-beSafeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F9B8BBEAEEF74616881A9048 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-Bold.ttf"; path = "../src/assets/fonts/SourceSansPro-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B558B6D3E50A4C139B5F6603 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-Regular.ttf"; path = "../src/assets/fonts/SourceSansPro-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9B8BBEAEEF74616881A9048 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Bold.ttf"; path = "../src/assets/fonts/SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* beSafeApp.app */,
+				13B07F961A680F5B00A75B9A /* Be Safe.app */,
 				00E356EE1AD99517003FC87E /* beSafeAppTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* beSafeApp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* beSafeApp-tvOSTests.xctest */,
@@ -206,14 +206,13 @@
 			sourceTree = "<group>";
 		};
 		8A86085391584373BC1C590B /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				F9B8BBEAEEF74616881A9048 /* SourceSansPro-Bold.ttf */,
 				B558B6D3E50A4C139B5F6603 /* SourceSansPro-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -254,7 +253,7 @@
 			);
 			name = beSafeApp;
 			productName = beSafeApp;
-			productReference = 13B07F961A680F5B00A75B9A /* beSafeApp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Be Safe.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* beSafeApp-tvOS */ = {
@@ -625,7 +624,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/beSafeApp.app/beSafeApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Be Safe.app/Be Safe";
 			};
 			name = Debug;
 		};
@@ -646,7 +645,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/beSafeApp.app/beSafeApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Be Safe.app/Be Safe";
 			};
 			name = Release;
 		};
@@ -666,7 +665,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rodrigo.besafe;
-				PRODUCT_NAME = beSafeApp;
+				PRODUCT_NAME = "Be Safe";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -686,7 +685,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rodrigo.besafe;
-				PRODUCT_NAME = beSafeApp;
+				PRODUCT_NAME = "Be Safe";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

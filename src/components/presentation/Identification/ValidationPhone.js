@@ -59,7 +59,7 @@ const ValidationPhonePresentation = ({
           {t('verification-title')}
         </Label>
         <LabelContainer>
-          <Label fonSize={16} lineHeight={24}>
+          <Label fontSize={16} lineHeight={24}>
             {t('verification-text')}
           </Label>
         </LabelContainer>

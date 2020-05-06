@@ -7,5 +7,7 @@ export default {
   back: 'Back',
   'required-field': 'There are empty fields!',
   'generic-error': 'An unexpected error occurred!',
-  wait: 'Wait...'
+  wait: 'Wait...',
+  good: 'Good',
+  bad: 'Bad'
 };
