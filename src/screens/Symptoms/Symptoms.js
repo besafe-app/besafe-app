@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { SymptomsContainer } from 'containers/SymptomsContainer';
+import { SymptomsContainer } from 'containers/Symptoms';
 import Header from 'components/core/Header';
 import { Container } from './styles';
 
-const Symptoms = () => {
+const SymptomsScreen = () => {
   const { goBack } = useNavigation();
 
   return (
@@ -16,4 +16,4 @@ const Symptoms = () => {
   );
 };
 
-export default Symptoms;
+export default SymptomsScreen;

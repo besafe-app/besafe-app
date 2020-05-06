@@ -7,6 +7,10 @@ export default {
     profile: {
       updateProfile: '/users/updateProfile'
     },
+    symptoms: {
+      list: '/symptoms',
+      save: '/symptoms/create'
+    },
     preConditions: {
       list: '/conditions',
       save: '/users/conditions'

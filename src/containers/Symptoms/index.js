@@ -1,2 +1,2 @@
-import SymptomsContainer from 'containers/Symptoms/SymptomsContainer';
+import SymptomsContainer from './Symptoms';
 export { SymptomsContainer };
