@@ -12,9 +12,9 @@ import Toast from 'components/core/Toast';
 import Loader from 'components/core/Loader';
 
 const SymptomsPresentation = ({
-  checkCondition,
+  checkSymptom,
   onSubmit,
-  conditions,
+  symptoms,
   messageError,
   errors,
   loading
@@ -26,18 +26,16 @@ const SymptomsPresentation = ({
       <Container>
         <View>
           <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-            {translate('pre-conditions-title')}
-          </Label>
-          <Label fontSize={16} color={COLORS.defaultText} marginTop={30}>
-            {translate('pre-conditions-subtitle')}
+            {translate('symptoms-title')}
           </Label>
         </View>
         <SymptomsContainer>
           <FlatList
-            data={conditions}
+            data={symptoms}
+            ListEmptyComponent={<Label>Aguarde</Label>}
             renderItem={({ item }) => (
               <CheckContainer key={item.id}>
-                <Checkbox label={item.name} checkPosition='right' onChange={checkCondition} />
+                <Checkbox label={item.name} checkPosition='right' onChange={checkSymptom} />
               </CheckContainer>
             )}
             ItemSeparatorComponent={() => <Separator />}
@@ -45,7 +43,7 @@ const SymptomsPresentation = ({
           />
         </SymptomsContainer>
         <Button onPress={onSubmit} isLoading={loading}>
-          {translate('next')}
+          {translate('symptoms-button-title')}
         </Button>
       </Container>
       <Toast show={errors.length !== 0} type='error' message={messageError} />
@@ -56,14 +54,14 @@ const SymptomsPresentation = ({
 SymptomsPresentation.propTypes = {
   checkCondition: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  conditions: PropTypes.array,
+  symptoms: PropTypes.array,
   messageError: PropTypes.string,
   errors: PropTypes.array,
   loading: PropTypes.bool
 };
 
 SymptomsPresentation.defaultProps = {
-  conditions: [],
+  symptoms: [],
   messageError: null,
   errors: [],
   loading: false

@@ -27,5 +27,7 @@ export default {
   'identification-title-receive-sms': 'Receive code by SMS',
   'identification-phone-number': 'Insert phone number',
   'identification-maskType': 'INTERNATIONAL',
-  'identification-dddMask': '(999) '
+  'identification-dddMask': '(999) ',
+  'symptoms-title': 'How are you feeling now',
+  'symptoms-button-title': 'Add Symptoms'
 };

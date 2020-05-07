@@ -6,18 +6,16 @@ import { getLanguage } from 'helpers';
 
 function* listSymptoms({ payload: { token } }) {
   try {
-    const response = yield api.get(constants.api.symptoms.list, {
-      params: {
-        language: getLanguage().split('-')[0]
-      },
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
+    response = [
+      { id: 0, name: 'Febre' },
+      { id: 1, name: 'Cansaço' },
+      { id: 2, name: 'Nariz entupido' },
+      { id: 3, name: 'Corisa(Corrimento nasal)' },
+      { id: 4, name: 'Dificuldade para respirar' }
+    ];
     yield put({
       type: Types.LIST_SYMPTOMS_SUCCESS,
-      listSymptoms: response.data
+      listSymptoms: response
     });
   } catch (error) {
     yield put({

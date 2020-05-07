@@ -4,34 +4,36 @@ import { useTranslation } from 'react-i18next';
 
 import { SymptomsPresentation } from 'components/presentation/Symptoms';
 import { useDispatch, useSelector } from 'react-redux';
-import { Creators as SymptomsActions } from 'store/ducks/Symptoms';
+import { Creators as SymptomsActions } from 'store/ducks/symptoms';
 import { getStoreItem } from 'config/storage';
 import { getLanguage } from 'helpers';
 
 const SymptomsContainer = () => {
   const { navigate } = useNavigation();
   const { i18n, t: translate } = useTranslation();
-  const [conditions, setConditions] = useState([]);
+
+  const [symptoms, setSymptoms] = useState([]);
   const [token, setToken] = useState(null);
   const [messageError, setMessageError] = useState(null);
-  const { listSymptomsRequest, saveSymptomsRequest } = SymptomsActions;
+
+  const { listSymptomsRequest } = SymptomsActions;
 
   const dispatch = useDispatch();
-  const { listSymptoms, errors, loading } = useSelector(({ Symptoms }) => Symptoms);
+  const { listSymptoms, errors, loading } = useSelector(({ symptoms }) => symptoms);
 
-  const checkCondition = condition => {
-    const index = conditions.findIndex(item => item.label === condition.label);
-
-    if (condition.check) {
-      setConditions([...conditions, condition]);
-    } else {
-      conditions.splice(index, 1);
-      setConditions(conditions);
-    }
+  const checkSymptom = condition => {
+    // const index = symptoms.findIndex(item => item.label === condition.label);
+    // if (condition.check) {
+    //   //     setSymptoms([...symptoms, symptom]);
+    //   //   } else {
+    //   //     symptoms.splice(index, 1);
+    //   //     setSymptoms(symptoms);
+    // }
   };
 
   useEffect(() => {
-    setConditions(listSymptoms);
+    !loading && setSymptoms(listSymptoms);
+    console.log({ listSymptoms });
   }, [listSymptoms]);
 
   useEffect(() => {
@@ -48,30 +50,30 @@ const SymptomsContainer = () => {
   }, []);
 
   useEffect(() => {
-    if (Symptoms.errors.length !== 0) {
+    if (errors.length !== 0) {
       setMessageError(translate('generic-error'));
     }
-  }, [Symptoms.errors]);
+  }, [errors]);
 
   const submit = () => {
-    if (conditions.length === 0) {
-      navigate('Home');
-    } else {
-      dispatch(
-        saveSymptomsRequest({
-          conditions: conditions.map(condition => condition.id),
-          token
-        })
-      );
-      navigate('Home');
-    }
+    // if (symptoms.length === 0) {
+    //   navigate('Home');
+    // } else {
+    //   // dispatch(
+    //   //   saveSymptomsRequest({
+    //   //     symptoms: symptoms.map(condition => condition.id),
+    //   //     token
+    //   //   })
+    //   // );
+    //   navigate('Home');
+    // }
   };
 
   return (
     <SymptomsPresentation
-      checkCondition={checkCondition}
+      checkSymptom={checkSymptom}
       onSubmit={submit}
-      conditions={conditions}
+      symptoms={symptoms}
       messageError={messageError}
       errors={errors}
       loading={loading}

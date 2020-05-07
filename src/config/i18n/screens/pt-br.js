@@ -26,5 +26,7 @@ export default {
   'identification-phone-number': 'Insira o numero do seu telefone',
   'identification-title-receive-sms': 'Receber código por SMS',
   'identification-maskType': 'BRL',
-  'identification-dddMask': '(99) '
+  'identification-dddMask': '(99) ',
+  'symptoms-title': 'Como está se sentindo agora',
+  'symptoms-button-title': 'Adicionar Sintomas'
 };

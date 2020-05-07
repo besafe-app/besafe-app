@@ -10,7 +10,6 @@ const SymptomsScreen = () => {
 
   return (
     <Container>
-      <Header customBackFunction={goBack} />
       <SymptomsContainer />
     </Container>
   );
