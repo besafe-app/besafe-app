@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
@@ -12,6 +12,8 @@ import Toast from 'components/core/Toast';
 import Loader from 'components/core/Loader';
 
 const SymptomsPresentation = ({
+  setFieldValue,
+  values,
   checkSymptom,
   onSubmit,
   symptoms,
@@ -32,10 +34,16 @@ const SymptomsPresentation = ({
         <SymptomsContainer>
           <FlatList
             data={symptoms}
-            ListEmptyComponent={<Label>Aguarde</Label>}
+            ListEmptyComponent={<ActivityIndicator size='large' />}
             renderItem={({ item }) => (
               <CheckContainer key={item.id}>
-                <Checkbox label={item.name} checkPosition='right' onChange={checkSymptom} />
+                <Checkbox
+                  label={item.name}
+                  checkPosition='right'
+                  complement={item.complement}
+                  setFieldValue={setFieldValue}
+                  values={values}
+                />
               </CheckContainer>
             )}
             ItemSeparatorComponent={() => <Separator />}

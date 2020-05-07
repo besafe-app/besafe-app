@@ -7,11 +7,11 @@ import { getLanguage } from 'helpers';
 function* listSymptoms({ payload: { token } }) {
   try {
     response = [
-      { id: 0, name: 'Febre' },
-      { id: 1, name: 'Cansaço' },
-      { id: 2, name: 'Nariz entupido' },
-      { id: 3, name: 'Corisa(Corrimento nasal)' },
-      { id: 4, name: 'Dificuldade para respirar' }
+      { id: 0, name: 'Febre', complement: true },
+      { id: 1, name: 'Cansaço', complement: false },
+      { id: 2, name: 'Nariz entupido', complement: false },
+      { id: 3, name: 'Corisa(Corrimento nasal)', complement: true },
+      { id: 4, name: 'Dificuldade para respirar', complement: true }
     ];
     yield put({
       type: Types.LIST_SYMPTOMS_SUCCESS,
@@ -25,12 +25,12 @@ function* listSymptoms({ payload: { token } }) {
   }
 }
 
-function* saveSymptoms({ payload: { conditions, token } }) {
+function* saveSymptoms({ payload: { symptoms, token } }) {
   try {
     yield api.post(
       constants.api.symptoms.save,
       {
-        conditions
+        symptoms
       },
       {
         headers: {

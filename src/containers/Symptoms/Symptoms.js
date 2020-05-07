@@ -15,20 +15,17 @@ const SymptomsContainer = () => {
   const [symptoms, setSymptoms] = useState([]);
   const [token, setToken] = useState(null);
   const [messageError, setMessageError] = useState(null);
+  const [values, setValues] = useState({ id: '', name: '', complement: '' });
 
   const { listSymptomsRequest } = SymptomsActions;
 
   const dispatch = useDispatch();
   const { listSymptoms, errors, loading } = useSelector(({ symptoms }) => symptoms);
 
-  const checkSymptom = condition => {
-    const index = symptoms.findIndex(item => item.label === condition.label);
-    if (condition.check) {
-      setSymptoms([...symptoms, symptom]);
-    } else {
-      symptoms.splice(index, 1);
-      setSymptoms(symptoms);
-    }
+  const setFieldValue = (field, value) => {
+    setValues({
+      [field]: value
+    });
   };
 
   useEffect(() => {
@@ -64,7 +61,8 @@ const SymptomsContainer = () => {
 
   return (
     <SymptomsPresentation
-      checkSymptom={checkSymptom}
+      setFieldValue={setFieldValue}
+      values={values}
       onSubmit={submit}
       symptoms={symptoms}
       messageError={messageError}
