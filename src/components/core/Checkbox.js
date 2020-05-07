@@ -57,11 +57,6 @@ const Checkbox = ({
         <TouchableOpacity onPress={changeCheck}>
           {check ? <Image source={checkIcon} /> : <Unchecked />}
         </TouchableOpacity>
-        <TouchableWithoutFeedback onPress={changeCheck}>
-          <Label color={COLORS.defaultTextLight} fontSize={18}>
-            {label}
-          </Label>
-        </TouchableWithoutFeedback>
         {check && complement && (
           <TextInput
             placeholder={'Informe'}
@@ -72,6 +67,11 @@ const Checkbox = ({
             value={values.complement}
           />
         )}
+        <TouchableWithoutFeedback onPress={changeCheck}>
+          <Label color={COLORS.defaultTextLight} fontSize={18}>
+            {label}
+          </Label>
+        </TouchableWithoutFeedback>
       </Container>
     </>
   );
