@@ -22,18 +22,17 @@ const SymptomsContainer = () => {
   const { listSymptoms, errors, loading } = useSelector(({ symptoms }) => symptoms);
 
   const checkSymptom = condition => {
-    // const index = symptoms.findIndex(item => item.label === condition.label);
-    // if (condition.check) {
-    //   //     setSymptoms([...symptoms, symptom]);
-    //   //   } else {
-    //   //     symptoms.splice(index, 1);
-    //   //     setSymptoms(symptoms);
-    // }
+    const index = symptoms.findIndex(item => item.label === condition.label);
+    if (condition.check) {
+      setSymptoms([...symptoms, symptom]);
+    } else {
+      symptoms.splice(index, 1);
+      setSymptoms(symptoms);
+    }
   };
 
   useEffect(() => {
     !loading && setSymptoms(listSymptoms);
-    console.log({ listSymptoms });
   }, [listSymptoms]);
 
   useEffect(() => {
@@ -56,17 +55,11 @@ const SymptomsContainer = () => {
   }, [errors]);
 
   const submit = () => {
-    // if (symptoms.length === 0) {
-    //   navigate('Home');
-    // } else {
-    //   // dispatch(
-    //   //   saveSymptomsRequest({
-    //   //     symptoms: symptoms.map(condition => condition.id),
-    //   //     token
-    //   //   })
-    //   // );
-    //   navigate('Home');
-    // }
+    if (symptoms.length === 0) {
+      navigate('Home');
+    } else {
+      navigate('Onboarding');
+    }
   };
 
   return (
