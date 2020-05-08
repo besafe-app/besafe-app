@@ -13,7 +13,7 @@ import COLORS from 'config/colors';
 import { LabelContainer, ButtonContainer, FormContainer, Container } from './styles';
 
 const IdentificationPresentation = ({ onSubmit, errors, messageError, values, setFieldValue }) => {
-  const { t, i18n } = useTranslation();
+  const { t: translate, i18n } = useTranslation();
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -36,10 +36,10 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
     <Container>
       <FormContainer>
         <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-          {t('identification-title')}
+          {translate('identification-title')}
         </Label>
         <TextInput
-          placeholder={t('identification-nickname')}
+          placeholder={translate('identification-nickname')}
           marginTop={24}
           value={values.nickname}
           onChange={value => setFieldValue('nickname', value)}
@@ -49,22 +49,22 @@ const IdentificationPresentation = ({ onSubmit, errors, messageError, values, se
           style={styles.maskInput}
           type={'cel-phone'}
           options={{
-            maskType: `${t('identification-maskType')}`,
-            dddMask: `${t('identification-dddMask')}`,
+            maskType: `${translate('identification-maskType')}`,
+            dddMask: `${translate('identification-dddMask')}`,
             withDDD: true
           }}
           value={values.phoneNumber}
           onChangeText={value => validation(value)}
         />
         <LabelContainer>
-          <Label fonSize={16} lineHeight={24}>
-            {t('identification-text')}
+          <Label fontSize={16} lineHeight={24}>
+            {translate('identification-text')}
           </Label>
         </LabelContainer>
       </FormContainer>
       <ButtonContainer>
         <Button disabled={disabled} marginTop={20} onPress={onSubmit}>
-          {t('identification-title-receive-sms')}
+          {translate('identification-title-receive-sms')}
         </Button>
       </ButtonContainer>
       <Toast show={errors.length !== 0} type='error' message={messageError} />
