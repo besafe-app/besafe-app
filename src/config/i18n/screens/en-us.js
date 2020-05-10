@@ -28,5 +28,7 @@ export default {
   'identification-phone-number': 'Insert phone number',
   'identification-maskType': 'INTERNATIONAL',
   'identification-dddMask': '(999) ',
+  'symptoms-title': 'How are you feeling now',
+  'symptoms-button-title': 'Add Symptoms'
   'dashboard-question-feeling-today': 'How are you feeling today?'
 };

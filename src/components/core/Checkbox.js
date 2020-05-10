@@ -4,6 +4,7 @@ import checkIcon from 'assets/icons/checkbox.png';
 import styled from 'styled-components/native';
 import COLORS from 'config/colors';
 import Label from './Label';
+import TextInput from './TextInput';
 import { Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
 const Unchecked = styled.View`
@@ -32,7 +33,10 @@ const Checkbox = ({
   marginLeft,
   marginRight,
   marginTop,
-  checkPosition
+  checkPosition,
+  complement,
+  setFieldValue,
+  values
 }) => {
   const [check, setCheck] = useState(checked);
 
@@ -42,22 +46,34 @@ const Checkbox = ({
   };
 
   return (
-    <Container
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      marginTop={marginTop}
-      checkPosition={checkPosition}
-    >
-      <TouchableOpacity onPress={changeCheck}>
-        {check ? <Image source={checkIcon} /> : <Unchecked />}
-      </TouchableOpacity>
-      <TouchableWithoutFeedback onPress={changeCheck}>
-        <Label color={COLORS.defaultTextLight} fontSize={18}>
-          {label}
-        </Label>
-      </TouchableWithoutFeedback>
-    </Container>
+    <>
+      <Container
+        marginBottom={marginBottom}
+        marginLeft={marginLeft}
+        marginRight={marginRight}
+        marginTop={marginTop}
+        checkPosition={checkPosition}
+      >
+        <TouchableOpacity onPress={changeCheck}>
+          {check ? <Image source={checkIcon} /> : <Unchecked />}
+        </TouchableOpacity>
+        {check && complement && (
+          <TextInput
+            placeholder={'Informe'}
+            marginTop={0}
+            marginBottom={0}
+            marginLeft={0}
+            onChange={value => setFieldValue('complement', value)}
+            value={values.complement}
+          />
+        )}
+        <TouchableWithoutFeedback onPress={changeCheck}>
+          <Label color={COLORS.defaultTextLight} fontSize={18}>
+            {label}
+          </Label>
+        </TouchableWithoutFeedback>
+      </Container>
+    </>
   );
 };
 
