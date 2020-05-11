@@ -41,7 +41,7 @@ Button.defaultProps = {
   onPress: () => {},
   isLoading: false,
   disabled: false,
-  typography: TYPOGRAPHY.regular
+  typography: TYPHOGRAPHY.regular
 };
 
 Button.propTypes = {

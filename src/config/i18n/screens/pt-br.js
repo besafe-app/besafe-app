@@ -28,6 +28,6 @@ export default {
   'identification-maskType': 'BRL',
   'identification-dddMask': '(99) ',
   'symptoms-title': 'Como está se sentindo agora',
-  'symptoms-button-title': 'Adicionar Sintomas'
+  'symptoms-button-title': 'Adicionar Sintomas',
   'dashboard-question-feeling-today': 'Como está se sentindo hoje?'
 };

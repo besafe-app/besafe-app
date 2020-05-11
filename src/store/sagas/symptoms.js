@@ -10,9 +10,15 @@ function* listSymptoms({ payload: { token } }) {
       { id: 0, name: 'Febre', complement: true },
       { id: 1, name: 'Cansaço', complement: false },
       { id: 2, name: 'Nariz entupido', complement: false },
-      { id: 3, name: 'Corisa(Corrimento nasal)', complement: true },
-      { id: 4, name: 'Dificuldade para respirar', complement: true }
+      { id: 3, name: 'Corisa(Corrimento nasal)', complement: false },
+      { id: 4, name: 'Dificuldade para respirar', complement: false },
+      { id: 5, name: 'Dor de cabeça', complement: false },
+      { id: 6, name: 'Dor de garganta', complement: false },
+      { id: 7, name: 'Tosse', complement: false },
+      { id: 8, name: 'Diarréia', complement: false },
+      { id: 9, name: 'Dor abdominal', complement: false }
     ];
+
     yield put({
       type: Types.LIST_SYMPTOMS_SUCCESS,
       listSymptoms: response
