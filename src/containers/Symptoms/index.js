@@ -1,2 +1,3 @@
 import SymptomsContainer from './Symptoms';
-export { SymptomsContainer };
+import SymptomsDetailsContainer from './Symptoms';
+export { SymptomsContainer, SymptomsDetailsContainer };

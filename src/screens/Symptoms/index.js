@@ -1,2 +1,3 @@
 import SymptomsScreen from './Symptoms';
-export { SymptomsScreen };
+import SymptomsDetailsScreen from './Symptoms';
+export { SymptomsScreen, SymptomsDetailsScreen };

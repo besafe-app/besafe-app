@@ -9,6 +9,7 @@ import { IdentificationScreen, ValidationPhoneScreen } from 'screens/Identificat
 import { ProfileScreen } from 'screens/Profile';
 import { PreConditionsScreen } from 'screens/PreConditions';
 import { SymptomsScreen } from 'screens/Symptoms';
+import { SymptomsDetailsScreen } from 'screens/Symptoms';
 import { RiskScreen } from 'screens/Risk';
 import { SuccessScreen } from 'screens/Success';
 import { OnboardingScreen } from 'screens/Onboarding';
@@ -21,7 +22,7 @@ const Navigator = () => {
 
   useLayoutEffect(() => {
     getStoreItem('@BeSafe:TermAgreed', termAccepted => {
-      setInitialRoute(termAccepted === 'true' ? 'Profile' : 'Onboarding');
+      setInitialRoute(termAccepted === 'true' ? 'Onboarding' : 'Profile');
     });
   }, []);
 
@@ -35,6 +36,7 @@ const Navigator = () => {
         <Stack.Screen name='Profile' component={ProfileScreen} />
         <Stack.Screen name='PreConditions' component={PreConditionsScreen} />
         <Stack.Screen name='Symptoms' component={SymptomsScreen} />
+        <Stack.Screen name='SymptomsDetails' component={SymptomsDetailsScreen} />
         <Stack.Screen name='Success' component={SuccessScreen} />
         <Stack.Screen name='Risk' component={RiskScreen} />
         <Stack.Screen name='Dashboard' component={DashboardScreen} />

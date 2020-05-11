@@ -52,10 +52,11 @@ const SymptomsContainer = () => {
   }, [errors]);
 
   const submit = () => {
+    console.log(symptoms.length);
     if (symptoms.length === 0) {
-      navigate('Home');
-    } else {
       navigate('Onboarding');
+    } else {
+      navigate('SymptomsDetails');
     }
   };
 

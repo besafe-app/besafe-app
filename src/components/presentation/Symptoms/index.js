@@ -1,2 +1,3 @@
 import SymptomsPresentation from './Symptoms';
-export { SymptomsPresentation };
+import SymptomsDetailsPresentation from './Symptoms';
+export { SymptomsPresentation, SymptomsDetailsPresentation };
