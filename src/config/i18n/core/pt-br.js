@@ -9,5 +9,6 @@ export default {
   'generic-error': 'Ocorreu um erro inesperado!',
   wait: 'Aguarde...',
   good: 'Bem',
-  bad: 'Mal'
+  bad: 'Mal',
+  confirm: 'Confirmar'
 };

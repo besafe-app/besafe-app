@@ -29,5 +29,6 @@ export default {
   'identification-dddMask': '(99) ',
   'symptoms-title': 'Como está se sentindo agora',
   'symptoms-button-title': 'Adicionar Sintomas',
-  'dashboard-question-feeling-today': 'Como está se sentindo hoje?'
+  'dashboard-question-feeling-today': 'Como está se sentindo hoje?',
+  'symptoms-details-title': 'Meus sintomas'
 };

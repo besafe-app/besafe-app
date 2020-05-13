@@ -5,16 +5,23 @@ import PropTypes from 'prop-types';
 
 import Label from 'components/core/Label';
 import Button from 'components/core/Button';
-import Checkbox from 'components/core/Checkbox';
 import COLORS from 'config/colors';
-import { Container, SymptomsContainer, CheckContainer, Separator } from './styles';
+import {
+  Container,
+  SymptomsContainer,
+  SelectedContainer,
+  CalendarContainer,
+  Separator
+} from './styles';
 import Toast from 'components/core/Toast';
 import Loader from 'components/core/Loader';
 
-const SymptomsPresentation = ({
+import { Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import icDash from 'assets/icons/icDash.png';
+
+const SymptomsDetailsPresentation = ({
   setFieldValue,
   values,
-  checkSymptom,
   onSubmit,
   symptoms,
   messageError,
@@ -28,31 +35,42 @@ const SymptomsPresentation = ({
       <Container>
         <View>
           <Label fontWeight='bold' fontSize={32} lineHeight={40} color={COLORS.black}>
-            {translate('symptoms-title')}
+            {translate('symptoms-details-title')}
           </Label>
         </View>
+        <CalendarContainer />
         <SymptomsContainer>
           <FlatList
             data={symptoms}
             ListEmptyComponent={<ActivityIndicator size='large' />}
             renderItem={({ item }) => (
-              <CheckContainer key={item.id}>
-                <Checkbox
-                  label={item.name}
-                  onChange={value => checkSymptom(value)}
-                  checkPosition='right'
-                  complement={item.complement}
-                  setFieldValue={setFieldValue}
-                  values={values}
-                />
-              </CheckContainer>
+              <SelectedContainer key={item.id}>
+                <TouchableOpacity onPress={() => {}}>
+                  <Image source={icDash} />
+                </TouchableOpacity>
+
+                <TouchableWithoutFeedback onPress={() => {}}>
+                  <Label>{item.name}</Label>
+                </TouchableWithoutFeedback>
+              </SelectedContainer>
             )}
             ItemSeparatorComponent={() => <Separator />}
             keyExtractor={item => item.id}
           />
         </SymptomsContainer>
-        <Button onPress={onSubmit} isLoading={loading}>
+        <Button
+          onPress={onSubmit}
+          isLoading={loading}
+          backgroundColor={COLORS.white}
+          borderColor={COLORS.primary}
+          borderWidth={2}
+          textColor={COLORS.primary}
+          marginBottom={10}
+        >
           {translate('symptoms-button-title')}
+        </Button>
+        <Button onPress={onSubmit} isLoading={loading}>
+          {translate('confirm')}
         </Button>
       </Container>
       <Toast show={errors.length !== 0} type='error' message={messageError} />
@@ -60,7 +78,7 @@ const SymptomsPresentation = ({
   );
 };
 
-SymptomsPresentation.propTypes = {
+SymptomsDetailsPresentation.propTypes = {
   checkCondition: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   symptoms: PropTypes.array,
@@ -69,11 +87,11 @@ SymptomsPresentation.propTypes = {
   loading: PropTypes.bool
 };
 
-SymptomsPresentation.defaultProps = {
+SymptomsDetailsPresentation.defaultProps = {
   symptoms: [],
   messageError: null,
   errors: [],
   loading: false
 };
 
-export default SymptomsPresentation;
+export default SymptomsDetailsPresentation;

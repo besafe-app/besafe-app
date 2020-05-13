@@ -2,25 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-import { SymptomsPresentation } from 'components/presentation/Symptoms';
+import { SymptomsDetailsPresentation } from 'components/presentation/Symptoms';
 import { useDispatch, useSelector } from 'react-redux';
 import { Creators as SymptomsActions } from 'store/ducks/symptoms';
 import { getStoreItem } from 'config/storage';
 import { getLanguage } from 'helpers';
 
-const SymptomsContainer = () => {
+const SymptomsDetailsContainer = () => {
   const { navigate } = useNavigation();
   const { i18n, t: translate } = useTranslation();
 
   const [symptoms, setSymptoms] = useState([]);
   const [token, setToken] = useState(null);
   const [messageError, setMessageError] = useState(null);
-  const [values, setValues] = useState([]);
+  const [values, setValues] = useState({ id: '', name: '', complement: '' });
 
-  const { listSymptomsRequest, saveSymptomsRequest } = SymptomsActions;
+  const { listSymptomsSelectedRequest } = SymptomsActions;
 
   const dispatch = useDispatch();
-  const { listSymptoms, errors, loading } = useSelector(({ symptoms }) => symptoms);
+  const { selectedSymptoms, errors, loading } = useSelector(({ symptoms }) => symptoms);
 
   const setFieldValue = (field, value) => {
     setValues({
@@ -29,12 +29,8 @@ const SymptomsContainer = () => {
   };
 
   useEffect(() => {
-    console.log(values);
-  }, [values]);
-
-  useEffect(() => {
-    !loading && setSymptoms(listSymptoms);
-  }, [listSymptoms]);
+    !loading && setSymptoms(selectedSymptoms);
+  }, [selectedSymptoms]);
 
   useEffect(() => {
     i18n.changeLanguage(getLanguage());
@@ -42,7 +38,7 @@ const SymptomsContainer = () => {
     getStoreItem('@BeSafe:token', () => {
       setToken(token);
       dispatch(
-        listSymptomsRequest({
+        listSymptomsSelectedRequest({
           token
         })
       );
@@ -56,30 +52,18 @@ const SymptomsContainer = () => {
   }, [errors]);
 
   const submit = () => {
-    if (values.length === 0) {
-      navigate('Onboarding');
+    if (symptoms.length === 0) {
+      navigate('Home');
     } else {
-      dispatch(saveSymptomsRequest({ symptoms: values, token }));
       navigate('SymptomsDetails');
     }
   };
 
-  const checkSymptom = symptom => {
-    const index = values.findIndex(item => item.label === symptom.label);
-    if (symptom.check) {
-      setValues([...values, symptom]);
-    } else {
-      values.splice(index, 1);
-      setValues(values);
-    }
-  };
-
   return (
-    <SymptomsPresentation
+    <SymptomsDetailsPresentation
       setFieldValue={setFieldValue}
       values={values}
       onSubmit={submit}
-      checkSymptom={checkSymptom}
       symptoms={symptoms}
       messageError={messageError}
       errors={errors}
@@ -88,4 +72,4 @@ const SymptomsContainer = () => {
   );
 };
 
-export default SymptomsContainer;
+export default SymptomsDetailsContainer;

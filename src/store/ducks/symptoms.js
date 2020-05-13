@@ -6,7 +6,10 @@ export const { Types, Creators } = createActions({
   listSymptomsFail: ['errors'],
   saveSymptomsRequest: ['payload'],
   saveSymptomsSuccess: [''],
-  saveSymptomsFail: ['errors']
+  saveSymptomsFail: ['errors'],
+  listSymptomsSelectedRequest: ['payload'],
+  listSymptomsSelectedSuccess: ['data'],
+  listSymptomsSelectedFail: ['errors']
 });
 
 const INITIAL_STATE = {
@@ -40,11 +43,25 @@ const saveSymptomsSuccess = state => ({
 
 const saveSymptomsFail = (state, { errors }) => ({ ...state, isLoading: false, errors });
 
+const listSymptomsSelectedRequest = () => ({ ...INITIAL_STATE, isLoading: true });
+
+const listSymptomsSelectedSuccess = (state, { selectedSymptoms }) => ({
+  ...state,
+  selectedSymptoms,
+  isLoading: false,
+  errors: []
+});
+
+const listSymptomsSelectedFail = (state, { errors }) => ({ ...state, isLoading: false, errors });
+
 export default createReducer(INITIAL_STATE, {
   [Types.LIST_SYMPTOMS_REQUEST]: listSymptomsRequest,
   [Types.LIST_SYMPTOMS_SUCCESS]: listSymptomsSuccess,
   [Types.LIST_SYMPTOMS_FAIL]: listSymptomsFail,
   [Types.SAVE_SYMPTOMS_REQUEST]: saveSymptomsRequest,
   [Types.SAVE_SYMPTOMS_SUCCESS]: saveSymptomsSuccess,
-  [Types.SAVE_SYMPTOMS_FAIL]: saveSymptomsFail
+  [Types.SAVE_SYMPTOMS_FAIL]: saveSymptomsFail,
+  [Types.LIST_SYMPTOMS_SELECTED_REQUEST]: listSymptomsSelectedRequest,
+  [Types.LIST_SYMPTOMS_SELECTED_SUCCESS]: listSymptomsSelectedSuccess,
+  [Types.LIST_SYMPTOMS_SELECTED_FAIL]: listSymptomsSelectedFail
 });
