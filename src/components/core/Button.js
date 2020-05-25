@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Loader from './Loader';
 
 import COLORS from 'config/colors';
-import TYPHOGRAPHY from 'config/typography';
+import { TYPOGRAPHY } from 'config/typography';
 
 const Button = props => (
   <StyledTouchableOpacity onPress={props.onPress} {...props}>
@@ -21,7 +21,7 @@ Button.defaultProps = {
   justifyContent: 'center',
   alignItems: 'center',
   textColor: COLORS.white,
-  fontWeight: '200',
+  fontWeight: 'bold',
   fontSize: 18,
   textAlign: 'center',
   borderRadius: 40,

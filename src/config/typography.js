@@ -1,15 +1,20 @@
 import { css } from 'styled-components';
 
+export const FONT_FAMILY_NAME = {
+  regular: 'SourceSansPro-Regular',
+  bold: 'SourceSansPro-Bold'
+};
+
 const FONT_FAMILY = {
   SourceSansProBold: css`
-    font-family: SourceSansPro-Bold;
+    font-family: ${FONT_FAMILY_NAME.bold};
   `,
   SourceSansProRegular: css`
-    font-family: SourceSansPro-Regular;
+    font-family: ${FONT_FAMILY_NAME.regular};
   `
 };
 
-const TYPOGRAPHY = {
+export const TYPOGRAPHY = {
   regular: css`
     ${FONT_FAMILY.SourceSansProRegular};
   `,
@@ -18,5 +23,3 @@ const TYPOGRAPHY = {
     font-weight: 700;
   `
 };
-
-export default TYPOGRAPHY;

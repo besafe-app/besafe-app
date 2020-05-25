@@ -28,6 +28,8 @@ export default {
   'identification-maskType': 'BRL',
   'identification-dddMask': '(99) ',
   'symptoms-title': 'Como está se sentindo agora',
-  'symptoms-button-title': 'Adicionar Sintomas'
-  'dashboard-question-feeling-today': 'Como está se sentindo hoje?'
+  'symptoms-button-title': 'Adicionar Sintomas',
+  'dashboard-question-feeling-today': 'Como está se sentindo hoje?',
+  'dashboard-my-symptoms': 'Meus sintomas',
+  'dashboard-had-no-symptoms-today': 'Você ainda não apresentou sintomas hoje'
 };

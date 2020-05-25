@@ -29,6 +29,8 @@ export default {
   'identification-maskType': 'INTERNATIONAL',
   'identification-dddMask': '(999) ',
   'symptoms-title': 'How are you feeling now',
-  'symptoms-button-title': 'Add Symptoms'
-  'dashboard-question-feeling-today': 'How are you feeling today?'
+  'symptoms-button-title': 'Add Symptoms',
+  'dashboard-question-feeling-today': 'How are you feeling today?',
+  'dashboard-my-symptoms': 'My symptoms',
+  'dashboard-had-no-symptoms-today': 'Had no symptoms today'
 };

@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+import COLORS from 'config/colors';
+
+export const Container = styled.ScrollView`
   padding: 56px 24px 64px 24px;
   flex: 1;
-  justify-content: space-between;
+  background-color: ${COLORS.white};
 `;

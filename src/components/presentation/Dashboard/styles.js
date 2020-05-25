@@ -17,3 +17,15 @@ export const Container = styled.View`
   justify-content: space-between;
   flex: 1;
 `;
+
+export const ImageContent = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+`;
+
+export const PersonEmpty = styled.Image`
+  width: 148px;
+`;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import COLORS from 'config/colors';
-import TYPOGRAPHY from 'config/typography';
+import { TYPOGRAPHY } from 'config/typography';
 
 const Label = props => <StyledLabel {...props}>{props.children}</StyledLabel>;
 

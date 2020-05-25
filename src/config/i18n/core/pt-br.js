@@ -9,5 +9,7 @@ export default {
   'generic-error': 'Ocorreu um erro inesperado!',
   wait: 'Aguarde...',
   good: 'Bem',
-  bad: 'Mal'
+  bad: 'Mal',
+  'i-am-fine': 'Estou bem',
+  'add-symptoms': 'Adicionar sintomas'
 };

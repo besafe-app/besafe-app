@@ -4,7 +4,7 @@ const COLORS = {
   white: '#FFFFFF',
   orange: '#F19424',
   primary: '#DA1F26',
-  grey: '#BFBFBF',
+  grey: '#BDBDBD',
   red: '#DA1F26',
   greyLight: '#E6E6E6',
   green: '#30B700',
@@ -15,6 +15,12 @@ const COLORS = {
   /* Text Colors */
   defaultText: '#4C4C4C',
   defaultTextLight: '#909090',
+
+  /* Calendar Colors */
+  calendarBlack: '#333333',
+  dotGrey: '#E0E0E0',
+  dotRed: '#EB5757',
+  dotGreen: '#27AE60',
 
   /* Status Colors */
   successColor: '#30B700',
